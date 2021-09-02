@@ -1,0 +1,36 @@
+.App {
+  font-size: 100%;
+  font-family: Ubuntu;
+  width: 100%;
+}
+
+.footer-container{
+  display: flex;
+  text-align: center;
+  color: lightskyblue;
+  padding: 1rem;
+}
+
+.footer-container .footer-link{
+  padding: 1rem;
+}
+
+
+
+
+
+
+/* @keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+/* @media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+} */
