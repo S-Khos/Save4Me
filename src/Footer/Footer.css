@@ -1,0 +1,18 @@
+.footer-container{
+    display: flex;
+    text-align: center;
+    background-color: #005bbc;
+    padding: 5rem;
+  }
+
+  .footer-menu{
+      width: fit-content;
+      margin: auto;
+  }
+  
+  .footer-container .footer-link{
+    padding: 1rem;
+    color: white;
+    font-size: 110%;
+    font-weight: bold;
+  }

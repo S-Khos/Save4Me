@@ -1,5 +1,5 @@
 .body-container{
-    background-color: lightgray;
+    background-color: white;
     padding-bottom: 15rem;
     width: 100%;
 }
@@ -19,16 +19,4 @@
     border-radius: .5rem;
     outline: none;
     color: gray;
-}
-
-#submit-button{
-    height: fit-content;
-    margin-bottom: .5rem;
-    margin-left: .5rem;
-    padding: 1rem;
-    border-radius: .5rem;
-    background-color: #005bbc;
-    color: white;
-    font-size: 110%;
-    cursor: pointer;
 }
