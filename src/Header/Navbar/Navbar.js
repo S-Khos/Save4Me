@@ -1,7 +1,8 @@
 import './Navbar.css';
 import brand from './brand5.png'
+import React from 'react'
 
-function Navbar() {
+const Navbar = () => {
   return (
     <div className="Navbar">
       <div className="header-container">
@@ -13,7 +14,7 @@ function Navbar() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar

@@ -69,7 +69,8 @@ function Body() {
     } else {
       console.log("no video id");
     }
-  }  
+  }
+
   return (
     <div className="Body">
       <div className="body-container">

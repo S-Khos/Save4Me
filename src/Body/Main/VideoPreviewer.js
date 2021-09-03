@@ -1,9 +1,8 @@
-
 import React from 'react'
 import ReactPlayer from 'react-player';
 import "./VideoPreviewer.css";
 
-function VideoPreviewer(props) {
+const VideoPreviewer = (props) => {
     return (
         <div className="VideoPreviewer">
             <div className="video-container">
