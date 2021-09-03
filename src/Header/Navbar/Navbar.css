@@ -30,10 +30,12 @@
     text-align: center;
     color: white;
     cursor: pointer;
+    outline: 1px solid transparent;
+    transition: 0.4s all ease;
 }
 
 .header-button:hover{
-    border: 1px white solid;
-    border-radius: .5rem;
-    box-shadow: 0 3px 20px rgb(0 0 0 / 0.3);
+    outline: 1px #016fe6 solid;
+    box-shadow: 0 3px 20px rgb(0 0 0 / 0.4);
+    transition: outline-color .20s ease-out; 
 }

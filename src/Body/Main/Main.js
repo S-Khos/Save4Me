@@ -14,6 +14,7 @@ function Body() {
   const [search, setSearch] = useState(false);
 
   useEffect(() => {
+    setSearch(false);
     var inputArea = document.getElementById('link-input');
     if (videoUrl.includes("https://www.youtube.com/watch?v=")){
       $(inputArea).removeClass('invalid-link');
@@ -24,15 +25,19 @@ function Body() {
         setVideoId(id);
         console.log(id);
       }
-    } else if (videoUrl !== "") {
+    } else if (videoUrl !== "" && !videoUrl.includes("https://www.youtube.com/watch?v=")) {
       $(inputArea).removeClass('regular-link');
       $(inputArea).removeClass('valid-link');
       $(inputArea).addClass('invalid-link');
+      setPropId("");
+      setVideoId("");
       console.log("invalid");
     } else if (videoUrl === ""){
       $(inputArea).removeClass('invalid-link');
       $(inputArea).removeClass('valid-link');
       $(inputArea).addClass('regular-link');
+      setPropId("");
+      setVideoId("");
     }
   },[videoUrl]);
 
@@ -62,7 +67,7 @@ function Body() {
       setPropId(videoId);
       setSearch(true);
     } else {
-      console.log("empty video id");
+      console.log("no video id");
     }
   }  
   return (
@@ -70,7 +75,7 @@ function Body() {
       <div className="body-container">
           <form className="input-form" onSubmit={e => e.preventDefault()}>
               <input value={videoUrl} onChange={e => setVideoUrl(e.target.value)} type="text" id="link-input" placeholder="Paste valid YouTube link here..."/>
-              <a id="input-submit" onClick={e => submit()} >
+              <a id="input-submit" onClick={e => submit()}>
                 <FaSearch id="download-logo"/>
               </a>
               <div id="type-selector">

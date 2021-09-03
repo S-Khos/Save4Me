@@ -7,7 +7,7 @@ function VideoPreviewer(props) {
     return (
         <div className="VideoPreviewer">
             <div className="video-container">
-                <ReactPlayer url={props.url}/>
+                <ReactPlayer width={590} height={340} url={props.url}/>
             </div>
         </div>
     )
