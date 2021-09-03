@@ -3,6 +3,7 @@ import { FaSearch } from 'react-icons/fa';
 import { useEffect, useState } from "react";
 import DownloadButton from './DownloadButton';
 import SwitchSelector from "react-switch-selector";
+import VideoPreviewer from './VideoPreviewer';
 import $ from "jquery"
 
 function Body() {
@@ -84,6 +85,7 @@ function Body() {
                 />
               </div>
           </form>
+          {search ? <VideoPreviewer url={videoUrl}/> : null}
           <div className="downloadButton">
             {search ? <DownloadButton id={propId} type={downloadType}/> : null}
           </div>
