@@ -6,17 +6,56 @@
 
 .input-form{
     width: fit-content;
+    height: fit-content;
     margin: auto;
     padding: 5rem;
+    /* background-color: rgb(238, 237, 237); */
+    border-radius: 1rem;
+    margin-top: 2rem;
+    box-shadow: 0 3px 20px rgb(0 0 0 / 0.3);
 }
 #link-input{
     font-family: Ubuntu !important;
     height: 3rem;
-    width: 35rem;
+    width: 33rem;
     font-size: 160%;
     text-align: center;
     border: 2px solid #005bbc;
     border-radius: .5rem;
     outline: none;
     color: gray;
+    margin-bottom: 1rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+}
+
+#input-submit{
+    background-color: #005bbc;
+    text-align: center;
+    padding: 1.1rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding-top: 1.3rem;
+    padding-bottom: .95rem;
+}
+
+#download-logo{
+    color: #ffd700;
+}
+
+.invalid-link{
+    border: 2px solid rgb(255, 0, 0) !important;
+    box-shadow: 0 4px 20px rgb(255 0 0 / 0.5);
+}
+
+.valid-link{
+    border: 2px solid rgb(0, 240, 0) !important;
+    box-shadow: 0 4px 20px rgb(0 240 0 / 0.5);
+}
+
+.regular-border{
+    border: 2px solid #005bbc !important;
 }

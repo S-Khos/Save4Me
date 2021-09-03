@@ -1,6 +1,7 @@
 .header-container{
     text-align: center;
     background-color: #005bbc;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.3);
     font-family: Ubuntu !important;
     display: flex;
 }
@@ -32,6 +33,7 @@
 }
 
 .header-button:hover{
-    border: 2px white solid;
+    border: 1px white solid;
     border-radius: .5rem;
+    box-shadow: 0 3px 20px rgb(0 0 0 / 0.3);
 }
