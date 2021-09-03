@@ -80,13 +80,13 @@ function Body() {
               </a>
               <div id="type-selector">
                 <SwitchSelector  
-                fontSize={40} 
-                onChange={onChange}
-                options={options}
-                backgroundColor={"#005bbc"} 
-                fontColor={"white"}
-                optionBorderRadius={6}
-                wrapperBorderRadius={6}
+                  fontSize={40} 
+                  onChange={onChange}
+                  options={options}
+                  backgroundColor={"#005bbc"} 
+                  fontColor={"white"}
+                  optionBorderRadius={6}
+                  wrapperBorderRadius={6}
                 />
               </div>
           </form>
