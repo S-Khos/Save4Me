@@ -9,9 +9,9 @@ const Navbar = () => {
       <div className="header-container">
         <img id="header-brand" src={brand}/>
         <div className="header-menu">
-          <a href="/" className="header-button" id="home">Home</a>
-          <a href="/FAQ" className="header-button" id="faq">FAQ</a>
-          <a href="/Contact" className="header-button" id="contact">Contact</a>
+          <Link to="/" className="header-button" id="home">Home</Link>
+          <Link to="/FAQ" className="header-button" id="faq">FAQ</Link>
+          <Link to="/Contact" className="header-button" id="contact">Contact</Link>
         </div>
       </div>
     </div>
