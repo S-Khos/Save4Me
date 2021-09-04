@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Body from './components/Body/Main/Main';
 import Navbar from './components/Header/Navbar/Navbar';
 import Footer from './components/Footer/Footer'
@@ -12,13 +12,13 @@ function App() {
       <div className="App">
         <Navbar/>
         <Switch>
-          <Route exact path={process.env.PUBLIC_URL + '/'}>
+          <Route exact path={'/'}>
             <Body/>
           </Route>
-          <Route exact path={process.env.PUBLIC_URL + '/Contact'} >
+          <Route exact path={'/Contact'} >
             <Contact/>
           </Route>
-          <Route exact path={process.env.PUBLIC_URL + '/FAQ'} >
+          <Route exact path={'/FAQ'} >
             <Faq/>
           </Route>
         </Switch>
