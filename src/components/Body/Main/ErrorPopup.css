@@ -34,6 +34,7 @@
     cursor: pointer;
     border-radius:.7rem;;
     transition: 0.4s all ease;
+    border: 0;
 }
 
 #popup-close:hover{

@@ -84,7 +84,7 @@ function Body() {
               </a>
               <div id="type-selector">
                 <SwitchSelector  
-                  fontSize={40} 
+                  fontSize={35} 
                   onChange={onChange}
                   options={options}
                   backgroundColor={"#005bbc"} 

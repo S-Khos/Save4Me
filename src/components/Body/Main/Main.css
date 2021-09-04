@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 .body-container{
+    font-family: 'Inter' !important;
     background-color: white;
     padding-bottom: 15rem;
 }
@@ -36,8 +38,8 @@
     cursor: pointer;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    padding-top: 1.31rem;
-    padding-bottom: .94rem;
+    padding-top: 20px;
+    padding-bottom: 14px;
     /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.4); */
 }
 
