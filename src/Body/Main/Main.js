@@ -75,7 +75,7 @@ function Body() {
     <div className="Body">
       <div className="body-container">
           <form className="input-form" onSubmit={e => e.preventDefault()}>
-              <input value={videoUrl} onChange={e => setVideoUrl(e.target.value)} type="text" id="link-input" placeholder="Paste valid YouTube link here..."/>
+              <input value={videoUrl} onChange={e => setVideoUrl(e.target.value)} type="text" id="link-input" placeholder="Paste valid link here..."/>
               <a id="input-submit" onClick={e => submit()}>
                 <FaSearch id="download-logo"/>
               </a>

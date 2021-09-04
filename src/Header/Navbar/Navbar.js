@@ -1,5 +1,5 @@
 import './Navbar.css';
-import brand from './brand5.png'
+import brand from './brand_save4me.png'
 import React from 'react'
 
 const Navbar = () => {
