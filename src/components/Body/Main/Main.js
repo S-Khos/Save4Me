@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import DownloadButton from './DownloadButton';
 import SwitchSelector from "react-switch-selector";
 import VideoPreviewer from './VideoPreviewer';
+import ErrorPopup from './ErrorPopup';
 import $ from "jquery"
 
 function Body() {
@@ -12,6 +13,7 @@ function Body() {
   const [propId, setPropId] = useState("");
   const [format, setFormat] = useState("mp3");
   const [search, setSearch] = useState(false);
+  const [triggerPopup, setTriggerPopup] = useState(false);
 
   useEffect(() => {
     setSearch(false);
@@ -68,6 +70,7 @@ function Body() {
       setSearch(true);
     } else {
       console.log("no video id");
+      setTriggerPopup(!triggerPopup);
     }
   }
 
@@ -86,8 +89,9 @@ function Body() {
                   options={options}
                   backgroundColor={"#005bbc"} 
                   fontColor={"white"}
-                  optionBorderRadius={6}
-                  wrapperBorderRadius={6}
+                  optionBorderRadius={12}
+                  wrapperBorderRadius={12}
+                  disabled={triggerPopup}
                 />
               </div>
           </form>
@@ -95,6 +99,9 @@ function Body() {
           <div className="downloadButton">
             {search ? <DownloadButton id={propId} type={format}/> : null}
           </div>
+          <ErrorPopup trigger={triggerPopup}>
+            <button id="popup-close" onClick={e => setTriggerPopup(!triggerPopup)} >Okay</button>
+          </ErrorPopup>
       </div>
     </div>
   );

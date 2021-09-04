@@ -1,15 +1,14 @@
 .body-container{
     background-color: white;
     padding-bottom: 15rem;
-    width: 100%;
 }
 
 .input-form{
     width: fit-content;
     height: fit-content;
     margin: auto;
-    padding: 1rem;
-    border-radius: 1rem;
+    padding: 1.2rem;
+    border-radius: .7rem;
     margin-top: 2rem;
     box-shadow: 0 3px 20px rgb(0 0 0 / 0.3);
 }
@@ -20,7 +19,7 @@
     font-size: 160%;
     text-align: center;
     border: 2px solid #005bbc;
-    border-radius: .5rem;
+    border-radius: .7rem;
     outline: none;
     color: gray;
     margin-bottom: 1rem;
@@ -33,13 +32,13 @@
     background-color: #005bbc;
     text-align: center;
     padding: 1.1rem;
-    border-radius: .5rem;
+    border-radius: .7rem;
     cursor: pointer;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    padding-top: 1.34rem;
-    padding-bottom: .95rem;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
+    padding-top: 1.31rem;
+    padding-bottom: .94rem;
+    /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.4); */
 }
 
 

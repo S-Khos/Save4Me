@@ -7,7 +7,7 @@
 }
 #header-brand{
     padding: 1rem;
-    width: fit-content;
+    width: 13rem;
     height: fit-content;
     margin:auto;
     margin-right: 0;
@@ -15,7 +15,7 @@
 
 .header-menu{
     margin: auto;
-    font-size: 115%;
+    font-size: 105%;
     font-weight: bold;
     margin: auto;
     height: fit-content;
@@ -30,13 +30,14 @@
     text-align: center;
     color: white;
     cursor: pointer;
-    outline: 1px solid transparent;
+    /* outline: 1px solid transparent; */
+    border-radius: .7rem;
     transition: 0.4s all ease;
     text-decoration: none;
 }
 
 .header-button:hover{
-    outline: 1px #016fe6 solid;
+    /* outline: 1px #016fe6 solid; */
     box-shadow: 0 3px 20px rgb(0 0 0 / 0.4);
     transition: outline-color .20s ease-out; 
 }
