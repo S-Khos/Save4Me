@@ -1,15 +1,30 @@
 import './App.css';
-import Body from './Body/Main/Main';
-import Navbar from './Header/Navbar/Navbar';
-import Footer from './Footer/Footer'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Body from './components/Body/Main/Main';
+import Navbar from './components/Header/Navbar/Navbar';
+import Footer from './components/Footer/Footer'
+import Contact from './components/Body/Main/Contact';
+import Faq from './components/Body/Main/Faq';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar></Navbar>
-      <Body></Body>
-      <Footer></Footer>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar/>
+        <Switch>
+          <Route exact path="/">
+            <Body/>
+          </Route>
+          <Route exact path="/Contact">
+            <Contact/>
+          </Route>
+          <Route exact path="/FAQ">
+            <Faq/>
+          </Route>
+        </Switch>
+        <Footer/>
+      </div>
+    </Router>
   );
 }
 

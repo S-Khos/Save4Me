@@ -10,7 +10,7 @@ function Body() {
   const [videoUrl, setVideoUrl] = useState("");
   const [videoId, setVideoId] = useState("");
   const [propId, setPropId] = useState("");
-  const [downloadType, setDownloadType] = useState("mp3");
+  const [format, setFormat] = useState("mp3");
   const [search, setSearch] = useState(false);
 
   useEffect(() => {
@@ -56,9 +56,9 @@ function Body() {
     }
   ];
 
-  const onChange = (newValue) => {
-    console.log(newValue);
-    setDownloadType(newValue);
+  const onChange = (downloadType) => {
+    console.log(downloadType);
+    setFormat(downloadType);
   };
 
   function submit(){
@@ -93,7 +93,7 @@ function Body() {
           </form>
           {search ? <VideoPreviewer url={videoUrl}/> : null}
           <div className="downloadButton">
-            {search ? <DownloadButton id={propId} type={downloadType}/> : null}
+            {search ? <DownloadButton id={propId} type={format}/> : null}
           </div>
       </div>
     </div>

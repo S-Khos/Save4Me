@@ -32,6 +32,7 @@
     cursor: pointer;
     outline: 1px solid transparent;
     transition: 0.4s all ease;
+    text-decoration: none;
 }
 
 .header-button:hover{
