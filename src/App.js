@@ -12,13 +12,13 @@ function App() {
       <div className="App">
         <Navbar/>
         <Switch>
-          <Route exact path="/">
+          <Route exact path={process.env.PUBLIC_URL + '/'}>
             <Body/>
           </Route>
-          <Route exact path="/Contact">
+          <Route exact path={process.env.PUBLIC_URL + '/Contact'} >
             <Contact/>
           </Route>
-          <Route exact path="/FAQ">
+          <Route exact path={process.env.PUBLIC_URL + '/FAQ'} >
             <Faq/>
           </Route>
         </Switch>
