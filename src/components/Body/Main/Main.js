@@ -12,6 +12,7 @@ function Body() {
   const [videoId, setVideoId] = useState("");
   const [propId, setPropId] = useState("");
   const [format, setFormat] = useState("mp3");
+  const [quality, setQuality] = useState("med");
   const [search, setSearch] = useState(false);
   const [triggerPopup, setTriggerPopup] = useState(false);
 
@@ -19,13 +20,18 @@ function Body() {
     setSearch(false);
     var inputArea = document.getElementById('link-input');
     if (videoUrl.includes("https://www.youtube.com/watch?v=")){
-      $(inputArea).removeClass('invalid-link');
-      $(inputArea).removeClass('regular-link');  
-      $(inputArea).addClass('valid-link');
       const id = videoUrl.replace("https://www.youtube.com/watch?v=", '');
-      if (id !== "" || !id.includes(" ")){
+      if (id && !id.includes(" ")){
+        $(inputArea).removeClass('invalid-link');
+        $(inputArea).removeClass('regular-link');  
+        $(inputArea).addClass('valid-link');
         setVideoId(id);
         console.log(id);
+      } else {
+        $(inputArea).removeClass('valid-link');
+        $(inputArea).removeClass('regular-link');  
+        $(inputArea).addClass('invalid-link');
+        setVideoId("");
       }
     } else if (videoUrl !== "" && !videoUrl.includes("https://www.youtube.com/watch?v=")) {
       $(inputArea).removeClass('regular-link');
@@ -43,7 +49,7 @@ function Body() {
     }
   },[videoUrl]);
 
-  const options = [
+  const formatOptions = [
     {
         label: "Audio",
         value: "mp3",
@@ -58,11 +64,38 @@ function Body() {
     }
   ];
 
-  const onChange = (downloadType) => {
+  const qualityOptions = [
+    {
+        label: "Low Quality",
+        value: "low",
+        selectedBackgroundColor: "#ffd700",
+        selectedFontColor: "#005bbc",
+    },
+    {
+        label: "Medium Quality",
+        value: "med",
+        selectedBackgroundColor: "#ffd700",
+        selectedFontColor: "#005bbc",
+    },
+    {
+      label: "High Quality",
+      value: "high",
+      selectedBackgroundColor: "#ffd700",
+      selectedFontColor: "#005bbc",
+    }
+  ];
+
+  const formatOnChange = (downloadType) => {
     console.log(downloadType);
     setFormat(downloadType);
   };
 
+  const qualityOnChange = (qualityType) => {
+    console.log(qualityType);
+    setQuality(qualityType);
+  };
+
+  
   function submit(){
     if (videoId !== ""){
       console.log(search);
@@ -85,12 +118,24 @@ function Body() {
               <div id="type-selector">
                 <SwitchSelector  
                   fontSize={35} 
-                  onChange={onChange}
-                  options={options}
+                  onChange={formatOnChange}
+                  options={formatOptions}
                   backgroundColor={"#005bbc"} 
                   fontColor={"white"}
                   optionBorderRadius={12}
                   wrapperBorderRadius={12}
+                  disabled={triggerPopup}
+                />
+              </div>
+              <div id="quality-selector">
+                <SwitchSelector
+                  fontSize={22.1} 
+                  onChange={qualityOnChange}
+                  options={qualityOptions}
+                  backgroundColor={"#005bbc"} 
+                  fontColor={"white"}
+                  optionBorderRadius={10}
+                  wrapperBorderRadius={10}
                   disabled={triggerPopup}
                 />
               </div>

@@ -1,19 +1,19 @@
 .footer-container{
-    display: flex;
-    text-align: center;
-    background-color: #005bbc;
-    padding: 4rem;
-    margin-top: 20rem;
-  }
+  display: flex;
+  text-align: center;
+  background-color: #005bbc;
+  padding: 4rem;
+  margin-top: 20rem;
+}
 
-  .footer-menu{
-      width: fit-content;
-      margin: auto;
-  }
+.footer-menu{
+  width: fit-content;
+  margin: auto;
+}
   
-  .footer-container .footer-link{
-    padding: 1rem;
-    color: white;
-    font-size: 110%;
-    font-weight: bold;
-  }
+.footer-container .footer-link{
+  padding: 1rem;
+  color: white;
+  font-size: 110%;
+  font-weight: bold;
+}
