@@ -8,6 +8,7 @@ import ErrorPopup from './ErrorPopup';
 import Description from './Description';
 import $ from "jquery"
 import axios from 'axios';
+import Grid from '@material-ui/core/Grid';
 
 function Body() {
   const [videoUrl, setVideoUrl] = useState("");
@@ -112,15 +113,16 @@ function Body() {
   return (
     <div className="Body">
       <div className="body-container">
-          <Description/>
+        <Description/>
+        <div className="interactive-container">
           <form className="input-form" onSubmit={e => e.preventDefault()}>
-              <input value={videoUrl} onChange={e => setVideoUrl(e.target.value)} type="text" id="link-input" placeholder="Paste valid link here..."/>
-              <a id="input-submit" onClick={e => submit()}>
-                <FaSearch id="download-logo"/>
-              </a>
-              <h2 className="option-labels">Download Format</h2>
-              <div id="type-selector">
-                <SwitchSelector  
+            <input value={videoUrl} onChange={e => setVideoUrl(e.target.value)} type="text" id="link-input" placeholder="Paste valid link here..."/>
+            <a id="input-submit" onClick={e => submit()}>
+              <FaSearch id="download-logo"/>
+            </a>
+            <h2 className="option-labels">Download Format</h2>
+            <div id="type-selector">
+              <SwitchSelector  
                   fontSize={35} 
                   onChange={formatOnChange}
                   options={formatOptions}
@@ -129,11 +131,11 @@ function Body() {
                   optionBorderRadius={12}
                   wrapperBorderRadius={12}
                   disabled={triggerPopup}
-                />
-              </div>
-              <h2 className="option-labels">Quality</h2>
-              <div id="quality-selector">
-                <SwitchSelector
+              />
+            </div>
+            <h2 className="option-labels">Quality</h2>
+            <div id="quality-selector">
+              <SwitchSelector
                   fontSize={33} 
                   onChange={qualityOnChange}
                   options={qualityOptions}
@@ -142,8 +144,8 @@ function Body() {
                   optionBorderRadius={10}
                   wrapperBorderRadius={10}
                   disabled={triggerPopup}
-                />
-              </div>
+              />
+            </div>
           </form>
           {search ? <VideoPreviewer url={videoUrl}/> : null}
           <div className="downloadButton">
@@ -152,6 +154,7 @@ function Body() {
           <ErrorPopup trigger={triggerPopup}>
             <button id="popup-close" onClick={e => setTriggerPopup(!triggerPopup)} >Okay</button>
           </ErrorPopup>
+        </div>
       </div>
     </div>
   );

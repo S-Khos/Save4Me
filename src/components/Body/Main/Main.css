@@ -3,6 +3,12 @@
     font-family: 'Inter' !important;
     background-color: white;
     padding-bottom: 6rem;
+    display: flex;
+}
+
+.interactive-container{
+    display:block;
+    margin: auto;
 }
 
 .input-form{
