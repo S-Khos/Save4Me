@@ -1,0 +1,40 @@
+.Description{
+    width: fit-content;
+    height: fit-content;
+    padding: 2rem;
+    margin: auto;
+    border-top: 2px lightgray solid;
+}
+.description-container{
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    /* border-top: 2px lightgray solid; */
+}
+
+.description-box{
+    width: fit-content;
+    height: fit-content;
+    padding: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#desc-logo{
+    width: 4rem;
+    height: 4rem;
+    margin: auto;
+}
+
+#description-title{
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    margin-bottom: 1rem;
+}
+
+#description-sentence{
+    max-width: 30rem;
+    word-break: break-word;
+}

@@ -5,6 +5,7 @@ import DownloadButton from './DownloadButton';
 import SwitchSelector from "react-switch-selector";
 import VideoPreviewer from './VideoPreviewer';
 import ErrorPopup from './ErrorPopup';
+import Description from './Description';
 import $ from "jquery"
 import axios from 'axios';
 
@@ -67,19 +68,19 @@ function Body() {
 
   const qualityOptions = [
     {
-        label: "Low Quality",
+        label: "Low",
         value: "low",
         selectedBackgroundColor: "#ffd700",
         selectedFontColor: "#005bbc",
     },
     {
-        label: "Medium Quality",
+        label: "Medium",
         value: "med",
         selectedBackgroundColor: "#ffd700",
         selectedFontColor: "#005bbc",
     },
     {
-      label: "High Quality",
+      label: "High",
       value: "high",
       selectedBackgroundColor: "#ffd700",
       selectedFontColor: "#005bbc",
@@ -111,11 +112,13 @@ function Body() {
   return (
     <div className="Body">
       <div className="body-container">
+          <Description/>
           <form className="input-form" onSubmit={e => e.preventDefault()}>
               <input value={videoUrl} onChange={e => setVideoUrl(e.target.value)} type="text" id="link-input" placeholder="Paste valid link here..."/>
               <a id="input-submit" onClick={e => submit()}>
                 <FaSearch id="download-logo"/>
               </a>
+              <h2 className="option-labels">Download Format</h2>
               <div id="type-selector">
                 <SwitchSelector  
                   fontSize={35} 
@@ -128,9 +131,10 @@ function Body() {
                   disabled={triggerPopup}
                 />
               </div>
+              <h2 className="option-labels">Quality</h2>
               <div id="quality-selector">
                 <SwitchSelector
-                  fontSize={22.1} 
+                  fontSize={33} 
                   onChange={qualityOnChange}
                   options={qualityOptions}
                   backgroundColor={"#005bbc"} 

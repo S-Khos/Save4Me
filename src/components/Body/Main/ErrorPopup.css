@@ -42,7 +42,8 @@
 
 #popup-close:hover{
     box-shadow: 0 3px 20px rgb(0 0 0 / 0.4);
-    transition: border-color .20s ease-out; 
+    transition: border-color .20s ease-out;
+    color: #ffd700;
     
 }
 #popup-header{

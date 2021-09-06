@@ -1,9 +1,9 @@
 .video-container{
     margin: auto;
-    padding: 1rem;
-    box-shadow: 0 3px 20px rgb(0 0 0 / 0.3);
-    border-radius: 1rem;
-    margin-top: 2rem;
+    padding: 2rem;
+    border-bottom: 2px lightgray solid;
+    /* box-shadow: 0 3px 20px rgb(0 0 0 / 0.3); */
+    /* border-radius: 1rem; */
     width: fit-content;
     height: fit-content;
 }
