@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+.Body{
+    width: 100%;
+}
 .body-container{
     font-family: 'Inter' !important;
     background-color: white;
@@ -9,6 +12,7 @@
 .interactive-container{
     display:block;
     margin: auto;
+    margin-left: 5rem;
 }
 
 .input-form{

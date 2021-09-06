@@ -141,8 +141,8 @@ function Body() {
                   options={qualityOptions}
                   backgroundColor={"#005bbc"} 
                   fontColor={"white"}
-                  optionBorderRadius={10}
-                  wrapperBorderRadius={10}
+                  optionBorderRadius={12}
+                  wrapperBorderRadius={12}
                   disabled={triggerPopup}
               />
             </div>

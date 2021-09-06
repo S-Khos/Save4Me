@@ -3,6 +3,7 @@
     height: fit-content;
     padding: 2rem;
     margin: auto;
+    margin-right: 5rem;
     border-top: 2px lightgray solid;
 }
 .description-container{
