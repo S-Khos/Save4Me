@@ -11,6 +11,8 @@ import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 
 function Body() {
+  var videoViewer = document.getElementById('videoViewer');
+  var downloadButton = document.getElementById('DownloadButton');
   const [videoUrl, setVideoUrl] = useState("");
   const [videoId, setVideoId] = useState("");
   const [propId, setPropId] = useState("");
@@ -18,6 +20,7 @@ function Body() {
   const [quality, setQuality] = useState("med");
   const [search, setSearch] = useState(false);
   const [triggerPopup, setTriggerPopup] = useState(false);
+  const acceptedUrl = ['https://www.instagram.com/', 'https://www.youtube.com/watch?v=', 'https://fb.watch/'];
 
   useEffect(() => {
     setSearch(false);
@@ -34,12 +37,16 @@ function Body() {
         $(inputArea).removeClass('valid-link');
         $(inputArea).removeClass('regular-link');  
         $(inputArea).addClass('invalid-link');
+        $(videoViewer).addClass("hidden");
+        $(downloadButton).addClass("hidden");
         setVideoId("");
       }
     } else if (videoUrl !== "" && !videoUrl.includes("https://www.youtube.com/watch?v=")) {
       $(inputArea).removeClass('regular-link');
       $(inputArea).removeClass('valid-link');
       $(inputArea).addClass('invalid-link');
+      $(videoViewer).addClass("hidden");
+      $(downloadButton).addClass("hidden");
       setPropId("");
       setVideoId("");
       console.log("invalid");
@@ -47,6 +54,8 @@ function Body() {
       $(inputArea).removeClass('invalid-link');
       $(inputArea).removeClass('valid-link');
       $(inputArea).addClass('regular-link');
+      $(videoViewer).addClass("hidden");
+      $(downloadButton).addClass("hidden");
       setPropId("");
       setVideoId("");
     }
@@ -103,7 +112,9 @@ function Body() {
     if (videoId !== ""){
       console.log(search);
       setPropId(videoId);
-      setSearch(true);
+      $(videoViewer).removeClass("hidden");
+      $(downloadButton).removeClass("hidden");
+      
     } else {
       console.log("no video id");
       setTriggerPopup(!triggerPopup);
@@ -120,7 +131,7 @@ function Body() {
             <a id="input-submit" onClick={e => submit()}>
               <FaSearch id="download-logo"/>
             </a>
-            <h2 className="option-labels">Download Format</h2>
+            <h2 className="option-labels">Format</h2>
             <div id="type-selector">
               <SwitchSelector  
                   fontSize={35} 
@@ -147,9 +158,11 @@ function Body() {
               />
             </div>
           </form>
-          {search ? <VideoPreviewer url={videoUrl}/> : null}
+          {/* {search ? <VideoPreviewer url={videoUrl}/> : null} */}
+          <VideoPreviewer url={videoUrl}/>
           <div className="downloadButton">
-            {search ? <DownloadButton id={propId} type={format}/> : null}
+            {/* {search ? <DownloadButton id={propId} type={format}/> : null} */}
+            <DownloadButton id={propId} type={format}/>
           </div>
           <ErrorPopup trigger={triggerPopup}>
             <button id="popup-close" onClick={e => setTriggerPopup(!triggerPopup)} >Okay</button>

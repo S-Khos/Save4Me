@@ -11,7 +11,7 @@
 }
 #header-brand{
     padding: 1rem;
-    width: 13rem;
+    width: 9rem;
     height: fit-content;
     margin:auto;
     margin-right: 0;
@@ -19,7 +19,7 @@
 
 .header-menu{
     margin: auto;
-    font-size: 105%;
+    font-size: 92%;
     font-weight: bold;
     margin: auto;
     height: fit-content;
@@ -35,14 +35,15 @@
     color: white;
     cursor: pointer;
     /* outline: 1px solid transparent; */
-    border-radius: .7rem;
-    transition: 0.4s all ease;
+    /* border-radius: .7rem; */
+    transition: 0.3s all ease;
     text-decoration: none;
 }
 
 .header-button:hover{
     /* outline: 1px #016fe6 solid; */
-    box-shadow: 0 3px 20px rgb(0 0 0 / 0.4);
-    transition: outline-color .20s ease-out;
+    border-bottom: #ffd700 2px solid;
+    /* box-shadow: 0 3px 20px rgb(0 0 0 / 0.4); */
+    transition: outline-color .30s ease-out;
     color: #ffd700;
 }

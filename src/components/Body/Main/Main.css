@@ -85,3 +85,11 @@
     margin-bottom: 1rem;
     color: rgb(84, 84, 84);
 }
+
+.hidden{
+    visibility: hidden;
+}
+
+.visible{
+    visibility: visible;
+}

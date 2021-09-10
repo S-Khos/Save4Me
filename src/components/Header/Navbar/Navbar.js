@@ -1,5 +1,5 @@
 import './Navbar.css';
-import brand from './brand_save4me.png'
+import brand from './brand_save4me1.png'
 import React from 'react'
 import { Link } from 'react-router-dom';
 

@@ -2,7 +2,8 @@
     width: fit-content;
     height: fit-content;
     padding: 2rem;
-    margin: auto;
+    margin-right: auto;
+    margin-left: auto;
     margin-right: 5rem;
     border-top: 2px lightgray solid;
 }

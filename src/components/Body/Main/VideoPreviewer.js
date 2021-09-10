@@ -4,7 +4,7 @@ import "./VideoPreviewer.css";
 
 const VideoPreviewer = (props) => {
     return (
-        <div className="VideoPreviewer">
+        <div id="videoViewer" className="VideoPreviewer hidden">
             <div className="video-container">
                 <ReactPlayer width={590} height={340} url={props.url}/>
             </div>
