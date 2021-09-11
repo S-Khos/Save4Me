@@ -12,7 +12,9 @@
 .interactive-container{
     display:block;
     margin: auto;
-    margin-left: 5rem;
+    margin-right: 3rem;
+    margin-left: 3rem;
+    /* margin-left: 5rem; */
 }
 
 .input-form{

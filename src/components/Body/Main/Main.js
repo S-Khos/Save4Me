@@ -6,6 +6,7 @@ import SwitchSelector from "react-switch-selector";
 import VideoPreviewer from './VideoPreviewer';
 import ErrorPopup from './ErrorPopup';
 import Description from './Description';
+import Tutorial from './tutorial';
 import $ from "jquery"
 import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
@@ -168,6 +169,7 @@ function Body() {
             <button id="popup-close" onClick={e => setTriggerPopup(!triggerPopup)} >Okay</button>
           </ErrorPopup>
         </div>
+        <Tutorial/>
       </div>
     </div>
   );
