@@ -8,57 +8,57 @@ import ErrorPopup from './ErrorPopup';
 import Description from './Description';
 import Tutorial from './tutorial';
 import $ from "jquery"
-import axios from 'axios';
-import Grid from '@material-ui/core/Grid';
+import axios from "axios";
+import openSocket from "socket.io-client";
 
 function Body() {
+
+  const URL = "/";
+  const socket = openSocket(URL);
+  
   var videoViewer = document.getElementById('videoViewer');
   var downloadButton = document.getElementById('DownloadButton');
   const [videoUrl, setVideoUrl] = useState("");
-  const [videoId, setVideoId] = useState("");
-  const [propId, setPropId] = useState("");
+  // const [videoId, setVideoId] = useState("");
+  // const [propId, setPropId] = useState("");
+  const [valid, setValid] = useState(false);
   const [format, setFormat] = useState("mp3");
   const [quality, setQuality] = useState("med");
   const [search, setSearch] = useState(false);
   const [triggerPopup, setTriggerPopup] = useState(false);
-  const acceptedUrl = ['https://www.instagram.com/', 'https://www.youtube.com/watch?v=', 'https://fb.watch/'];
+  const acceptedUrl = ['instagram', 'youtube', 'https://fb.watch/'];
+
 
   useEffect(() => {
     setSearch(false);
     var inputArea = document.getElementById('link-input');
-    if (videoUrl.includes("https://www.youtube.com/watch?v=")){
-      const id = videoUrl.replace("https://www.youtube.com/watch?v=", '');
-      if (id && !id.includes(" ")){
+    var site = videoUrl.split(".")[1];
+    console.log(site);
+
+    if (acceptedUrl.includes(site) && videoUrl.length > 0) {
         $(inputArea).removeClass('invalid-link');
         $(inputArea).removeClass('regular-link');  
         $(inputArea).addClass('valid-link');
-        setVideoId(id);
-        console.log(id);
-      } else {
+        setValid(true);
+
+    } else if(!acceptedUrl.includes(site) && videoUrl.length > 0) {
         $(inputArea).removeClass('valid-link');
-        $(inputArea).removeClass('regular-link');  
+        $(inputArea).removeClass('regular-link');
         $(inputArea).addClass('invalid-link');
         $(videoViewer).addClass("hidden");
         $(downloadButton).addClass("hidden");
-        setVideoId("");
-      }
-    } else if (videoUrl !== "" && !videoUrl.includes("https://www.youtube.com/watch?v=")) {
-      $(inputArea).removeClass('regular-link');
-      $(inputArea).removeClass('valid-link');
-      $(inputArea).addClass('invalid-link');
-      $(videoViewer).addClass("hidden");
-      $(downloadButton).addClass("hidden");
-      setPropId("");
-      setVideoId("");
-      console.log("invalid");
-    } else if (videoUrl === ""){
-      $(inputArea).removeClass('invalid-link');
-      $(inputArea).removeClass('valid-link');
-      $(inputArea).addClass('regular-link');
-      $(videoViewer).addClass("hidden");
-      $(downloadButton).addClass("hidden");
-      setPropId("");
-      setVideoId("");
+        setValid(false);
+
+    } else if (videoUrl.length === 0) {
+        $(inputArea).removeClass('invalid-link');
+        $(inputArea).removeClass('valid-link');  
+        $(inputArea).addClass('regular-link');
+        $(inputArea).removeClass('invalid-link');
+        $(inputArea).removeClass('valid-link');
+        $(inputArea).addClass('regular-link');
+        $(videoViewer).addClass("hidden");
+        $(downloadButton).addClass("hidden");
+        setValid(false);
     }
   },[videoUrl]);
 
@@ -71,7 +71,7 @@ function Body() {
     },
     {
         label: "Video",
-        value: "videos",
+        value: "mp4",
         selectedBackgroundColor: "#ffd700",
         selectedFontColor: "#005bbc",
     }
@@ -110,14 +110,11 @@ function Body() {
 
   
   function submit(){
-    if (videoId !== ""){
-      console.log(search);
-      setPropId(videoId);
+    if (valid){
+      console.log(format)
       $(videoViewer).removeClass("hidden");
       $(downloadButton).removeClass("hidden");
-      
     } else {
-      console.log("no video id");
       setTriggerPopup(!triggerPopup);
     }
   }
@@ -163,7 +160,7 @@ function Body() {
           <VideoPreviewer url={videoUrl}/>
           <div className="downloadButton">
             {/* {search ? <DownloadButton id={propId} type={format}/> : null} */}
-            <DownloadButton id={propId} type={format}/>
+            <DownloadButton url={videoUrl} type={format} quality={quality}/>
           </div>
           <ErrorPopup trigger={triggerPopup}>
             <button id="popup-close" onClick={e => setTriggerPopup(!triggerPopup)} >Okay</button>

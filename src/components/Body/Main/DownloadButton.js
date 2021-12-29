@@ -2,9 +2,13 @@ import React from 'react'
 import "./DownloadButton.css";
 
 const DownloadButton = (props) => {
+    function SubmitEvent(){
+        console.log(props.url);
+        window.location.href = `http://localhost:5000/download?URL=${props.url},${props.quality},${props.type}`;
+    }
     return (
         <div id="DownloadButton" className="DownloadButton hidden">
-            <iframe id="download-buttons" src={`https://api.vevioz.com/@api/button/${props.type}/${props.id}`} scrolling="no"></iframe>
+            <a id="download-button" onClick={e => SubmitEvent()}>Download File</a>
         </div>
     )
 }
