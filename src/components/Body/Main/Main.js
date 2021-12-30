@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import './Main.css';
 import { FaSearch } from 'react-icons/fa';
 import { useEffect, useState } from "react";
@@ -8,7 +9,6 @@ import ErrorPopup from './ErrorPopup';
 import Description from './Description';
 import Tutorial from './tutorial';
 import $ from "jquery"
-import axios from "axios";
 import openSocket from "socket.io-client";
 
 function Body() {
@@ -22,8 +22,8 @@ function Body() {
   // const [videoId, setVideoId] = useState("");
   // const [propId, setPropId] = useState("");
   const [valid, setValid] = useState(false);
-  const [format, setFormat] = useState("mp3");
-  const [quality, setQuality] = useState("med");
+  const [format, setFormat] = useState("audioonly");
+  const [quality, setQuality] = useState("135");
   const [search, setSearch] = useState(false);
   const [triggerPopup, setTriggerPopup] = useState(false);
   const acceptedUrl = ['instagram', 'youtube', 'https://fb.watch/'];
@@ -65,7 +65,7 @@ function Body() {
   const formatOptions = [
     {
         label: "Audio",
-        value: "mp3",
+        value: "audioonly",
         selectedBackgroundColor: "#ffd700",
         selectedFontColor: "#005bbc",
     },
@@ -80,19 +80,19 @@ function Body() {
   const qualityOptions = [
     {
         label: "Low",
-        value: "low",
+        value: "lowest",
         selectedBackgroundColor: "#ffd700",
         selectedFontColor: "#005bbc",
     },
     {
         label: "Medium",
-        value: "med",
+        value: "135",
         selectedBackgroundColor: "#ffd700",
         selectedFontColor: "#005bbc",
     },
     {
       label: "High",
-      value: "high",
+      value: "highest",
       selectedBackgroundColor: "#ffd700",
       selectedFontColor: "#005bbc",
     }
@@ -126,7 +126,7 @@ function Body() {
         <div className="interactive-container">
           <form className="input-form" onSubmit={e => e.preventDefault()}>
             <input value={videoUrl} onChange={e => setVideoUrl(e.target.value)} type="text" id="link-input" placeholder="Paste valid link here..."/>
-            <a id="input-submit" onClick={e => submit()}>
+            <a id="input-submit" onClick={() => submit()}>
               <FaSearch id="download-logo"/>
             </a>
             <h2 className="option-labels">Format</h2>
@@ -159,8 +159,8 @@ function Body() {
           {/* {search ? <VideoPreviewer url={videoUrl}/> : null} */}
           <VideoPreviewer url={videoUrl}/>
           <div className="downloadButton">
-            {/* {search ? <DownloadButton id={propId} type={format}/> : null} */}
-            <DownloadButton url={videoUrl} type={format} quality={quality}/>
+            {quality || format ? <DownloadButton url={videoUrl} type={format} quality={quality}/> : null}
+            {/* <DownloadButton url={videoUrl} type={format} quality={quality}/> */}
           </div>
           <ErrorPopup trigger={triggerPopup}>
             <button id="popup-close" onClick={e => setTriggerPopup(!triggerPopup)} >Okay</button>
