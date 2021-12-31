@@ -9,37 +9,38 @@ import ErrorPopup from './ErrorPopup';
 import Description from './Description';
 import Tutorial from './tutorial';
 import $ from "jquery"
-import openSocket from "socket.io-client";
+import axios from 'axios';
 
 function Body() {
-
-  const URL = "/";
-  const socket = openSocket(URL);
   
   var videoViewer = document.getElementById('videoViewer');
   var downloadButton = document.getElementById('DownloadButton');
   const [videoUrl, setVideoUrl] = useState("");
-  // const [videoId, setVideoId] = useState("");
-  // const [propId, setPropId] = useState("");
+  const [videoID, setVideoID] = useState("");
+  const [videoTitle, setVideoTitle] = useState("");
+  const [videoThumbnail, setVideoThumbnail] = useState("");
   const [valid, setValid] = useState(false);
+  const [fetched, setFetched] = useState(false);
   const [format, setFormat] = useState("audioonly");
   const [quality, setQuality] = useState("135");
   const [search, setSearch] = useState(false);
   const [triggerPopup, setTriggerPopup] = useState(false);
   const acceptedUrl = ['instagram', 'youtube', 'https://fb.watch/'];
 
-
   useEffect(() => {
     setSearch(false);
     var inputArea = document.getElementById('link-input');
     var site = videoUrl.split(".")[1];
-    console.log(site);
 
     if (acceptedUrl.includes(site) && videoUrl.length > 0) {
         $(inputArea).removeClass('invalid-link');
         $(inputArea).removeClass('regular-link');  
         $(inputArea).addClass('valid-link');
         setValid(true);
+        if (videoUrl.includes('?') && videoUrl.includes('=')) {
+          let videoId = videoUrl.split("?")[1];
+          setVideoID(videoId.split("=")[1]);
+        }
 
     } else if(!acceptedUrl.includes(site) && videoUrl.length > 0) {
         $(inputArea).removeClass('valid-link');
@@ -48,6 +49,7 @@ function Body() {
         $(videoViewer).addClass("hidden");
         $(downloadButton).addClass("hidden");
         setValid(false);
+        setFetched(false);
 
     } else if (videoUrl.length === 0) {
         $(inputArea).removeClass('invalid-link');
@@ -59,6 +61,7 @@ function Body() {
         $(videoViewer).addClass("hidden");
         $(downloadButton).addClass("hidden");
         setValid(false);
+        setFetched(false);
     }
   },[videoUrl]);
 
@@ -109,11 +112,14 @@ function Body() {
   };
 
   
-  function submit(){
+  const submit = () => {
     if (valid){
-      console.log(format)
-      $(videoViewer).removeClass("hidden");
-      $(downloadButton).removeClass("hidden");
+      axios.get(`https://save4me-fetch-api.herokuapp.com/api/video?id=${videoID}`)
+      .then(res => {
+        setVideoTitle(res.data.title);
+        setVideoThumbnail(res.data.thumbnailURL);
+        setFetched(true);
+      })
     } else {
       setTriggerPopup(!triggerPopup);
     }
@@ -153,17 +159,16 @@ function Body() {
                   optionBorderRadius={12}
                   wrapperBorderRadius={12}
                   disabled={triggerPopup}
+
               />
             </div>
           </form>
-          {/* {search ? <VideoPreviewer url={videoUrl}/> : null} */}
-          <VideoPreviewer url={videoUrl}/>
-          <div className="downloadButton">
-            {quality || format ? <DownloadButton url={videoUrl} type={format} quality={quality}/> : null}
-            {/* <DownloadButton url={videoUrl} type={format} quality={quality}/> */}
-          </div>
+          {fetched && <div>
+            <VideoPreviewer videoID={videoID} videoTitle={videoTitle} videoThumbnail={videoThumbnail}/>
+            <DownloadButton videoID={videoID} type={format} quality={quality}/>
+          </div>}
           <ErrorPopup trigger={triggerPopup}>
-            <button id="popup-close" onClick={e => setTriggerPopup(!triggerPopup)} >Okay</button>
+            <button id="popup-close" onClick={e => setTriggerPopup(!triggerPopup)}>Okay</button>
           </ErrorPopup>
         </div>
         <Tutorial/>
