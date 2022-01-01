@@ -1,23 +1,14 @@
 {
   "files": {
-    "main.css": "/Save4Me/static/css/main.c094efbf.chunk.css",
-    "main.js": "/Save4Me/static/js/main.074f23a0.chunk.js",
-    "main.js.map": "/Save4Me/static/js/main.074f23a0.chunk.js.map",
-    "runtime-main.js": "/Save4Me/static/js/runtime-main.32f84294.js",
-    "runtime-main.js.map": "/Save4Me/static/js/runtime-main.32f84294.js.map",
-    "static/js/2.84df3046.chunk.js": "/Save4Me/static/js/2.84df3046.chunk.js",
-    "static/js/2.84df3046.chunk.js.map": "/Save4Me/static/js/2.84df3046.chunk.js.map",
-    "static/js/3.97a68e0e.chunk.js": "/Save4Me/static/js/3.97a68e0e.chunk.js",
-    "static/js/3.97a68e0e.chunk.js.map": "/Save4Me/static/js/3.97a68e0e.chunk.js.map",
+    "main.css": "/Save4Me/static/css/main.8aea3176.css",
+    "main.js": "/Save4Me/static/js/main.2a1abeaa.js",
+    "static/media/video.mp4": "/Save4Me/static/media/video.7d1ea6a94986d5c2a068.mp4",
     "index.html": "/Save4Me/index.html",
-    "static/css/main.c094efbf.chunk.css.map": "/Save4Me/static/css/main.c094efbf.chunk.css.map",
-    "static/js/2.84df3046.chunk.js.LICENSE.txt": "/Save4Me/static/js/2.84df3046.chunk.js.LICENSE.txt",
-    "static/media/ig_logo.10527686.png": "/Save4Me/static/media/ig_logo.10527686.png"
+    "main.8aea3176.css.map": "/Save4Me/static/css/main.8aea3176.css.map",
+    "main.2a1abeaa.js.map": "/Save4Me/static/js/main.2a1abeaa.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.32f84294.js",
-    "static/js/2.84df3046.chunk.js",
-    "static/css/main.c094efbf.chunk.css",
-    "static/js/main.074f23a0.chunk.js"
+    "static/css/main.8aea3176.css",
+    "static/js/main.2a1abeaa.js"
   ]
 }
