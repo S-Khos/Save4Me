@@ -1,0 +1,36 @@
+export var homeObjOne = {
+    
+    id: 'about',
+    lightBg: false,
+    lightText: true,
+    lightTextDesc: true,
+    topLine: 'About',
+    headLine: 'What Is Save4Me?',
+    description: 'Lorem ipsum dolor sit amet, Excepteur sint occaecat cupidatat non proident. Lorem ipsum dolor sit amet.',
+    includeBtn: false,
+    buttonLabel: '',
+    videoThmbn: true,
+    img: require('../../images/1.svg'),
+    alt: '',
+    dark: true,
+    primary: true,
+    darkText: false,
+}
+
+export var homeObjTwo = {
+    id: 'contact',
+    lightBg: true,
+    lightText: false,
+    lightTextDesc: false,
+    topLine: 'Contact',
+    headLine: 'You Can Contact Us Here',
+    description: 'Lorem ipsum dolor sit amet, Excepteur sint occaecat cupidatat non proident. Lorem ipsum dolor sit amet',
+    includeBtn: true,
+    buttonLabel: 'Contact Us',
+    videoThmbn: false,
+    img: require('../../images/2.svg'),
+    alt: '',
+    dark: true,
+    primary: true,
+    darkText: true,
+}

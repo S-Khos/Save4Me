@@ -1,0 +1,45 @@
+
+::placeholder {
+    color: rgb(172, 170, 170);
+    /* font-size: 100%; */
+}
+#input-container{
+    display: flex;
+    flex-direction: row;
+}
+#input-submit{
+    background-color: #00a7f5;
+    text-align: center;
+    justify-content: center;
+    padding: 1rem;
+    padding-bottom: .6rem;
+    border-radius: .7rem;
+    cursor: pointer;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.4); */
+}
+
+
+#download-logo{
+    color: #161616;
+    /* color: #026d40; */
+}
+
+.invalid-link{
+    border: 2.8px solid rgb(255, 0, 0) !important;
+    box-shadow: 0 6px 50px rgb(255 0 0 / 0.7);
+    background-color: transparent !important;
+}
+
+.valid-link{
+    border: 2.8px solid rgb(0, 255, 0) !important;
+    box-shadow: 0 6px 50px rgba(0, 255, 0, 0.7);
+    background-color: transparent !important;
+}
+
+.regular-border{
+    border: 0px solid #005bbc !important;
+}
+
+ 
