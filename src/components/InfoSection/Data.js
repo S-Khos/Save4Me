@@ -1,3 +1,21 @@
+export var downloadSection = {
+    
+    id: 'download',
+    lightBg: true,
+    lightText: false,
+    lightTextDesc: false,
+    topLine: '',
+    headLine: 'Download',
+    description: 'Lorem ipsum dolor sit amet, Excepteur sint occaecat cupidatat non proident. Lorem ipsum dolor sit amet.',
+    includeBtn: true,
+    buttonLabel: 'Download File',
+    videoThmbn: true,
+    img: '',
+    alt: '',
+    dark: true,
+    primary: true,
+    darkText: true,
+}
 export var homeObjOne = {
     
     id: 'about',
