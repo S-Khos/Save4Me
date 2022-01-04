@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import { DownloadContainer, DownloadRow, DownloadWrapper, TextWrapper, Column1, Column2, MediaTitle, TopLine, Heading, Subtitle, BtnWrap, Img, ImgWrap, Button } from './DownloadElements'
 import Radio from '@material-ui/core/Radio';
+import RadioGroup, { useRadioGroup } from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 const DownloadSection = ({lightBg, id, videoThmbn, title, lightText, primary, headLine, description, topLine, img, darkText, buttonLabel, alt, includeBtn}) => {
     const [format, setFormat] = useState('');
@@ -18,20 +20,14 @@ const DownloadSection = ({lightBg, id, videoThmbn, title, lightText, primary, he
                             <TextWrapper>
                                 <Subtitle darkText={darkText}>Format</Subtitle>
                                 <BtnWrap>
-                                    <Radio
-                                        value={'mp3'}
-                                        onChange={(e) => setFormat(e.target.value)}
-                                        checked={format === 'mp3'}
-                                        label="Audio"
-                                        color={'#01bf71'}
-                                    />
-                                    <Radio
-                                        value={'mp4'}
-                                        onChange={(e) => setFormat(e.target.value)}
-                                        checked={format === 'mp4'}
-                                        label="Video"
-                                        color={'#01bf71'}
-                                    />
+                                    <RadioGroup
+                                    sx={{color:"#010606"}}
+                                    row 
+                                    value={format}
+                                    onChange={(e) => {setFormat(e.target.value)}} name="format" defaultValue="mp3">
+                                        <FormControlLabel value="mp3" label="Audio" control={<Radio color="success"/>} />
+                                        <FormControlLabel value="mp4" label="Video" control={<Radio color="success"/>} />
+                                    </RadioGroup>
                                 </BtnWrap>
                                 <Subtitle darkText={darkText}>Quality</Subtitle>
                             </TextWrapper>

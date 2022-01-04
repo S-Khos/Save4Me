@@ -180,23 +180,44 @@ export const ScrollWrap = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 45px;
 
 `
 
 export const Scroll = styled(Link)`
-    display: block;
+    word-wrap: break-word;
+    width: 220px;
     background-color: transparent;
-    font-size: 1rem;
+    ${'' /* font-size: 1.5rem; */}
+    font-size: 24px;
     color: #fff;
+    text-align: center;
     align-text: center;
     justify-content: center;
     cursor: pointer;
     height: 48px;
     padding: 13px;
+    @media screen and (max-width: 768px) {
+        font-size: 24px;
+        transition: 0.3s all ease-in-out;
+    }
+
+    @media screen and (max-width: 480px) {
+        font-size: 19px;
+        transition: 0.3s all ease-in-out;
+    }
 `
 
 export const DownArrow = styled(FaArrowDown)`
     color: white;
     font-size: 1.2rem;
+    @media screen and (max-width: 768px) {
+        font-size: 24px;
+        transition: 0.3s all ease-in-out;
+    }
+
+    @media screen and (max-width: 480px) {
+        font-size: 19px;
+        transition: 0.3s all ease-in-out;
+    }
 `
