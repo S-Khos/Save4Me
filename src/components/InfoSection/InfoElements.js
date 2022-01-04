@@ -67,7 +67,6 @@ export const Heading = styled.h1`
     font-size: 48px;
     line-height: 1.1;
     font-weight: 600;
-    color: black;
     color: ${({lightText}) => (lightText ? '#f7f8fa' : '#010606')};
 
     @media screen and (max-width: 480px) {
@@ -77,7 +76,6 @@ export const Heading = styled.h1`
 
 export const Subtitle = styled.p`
     max-width: 440px;
-    margin-bottom: 35px;
     font-size:18px;
     line-height: 24px;
     color: ${({darkText}) => (darkText ? '#010606' : '#fff')};
@@ -87,6 +85,7 @@ export const Subtitle = styled.p`
 export const BtnWrap = styled.div`
     display: flex;
     justify-content: flex-start;
+    margin-top: 35px;
 `
 
 export const ImgWrap = styled.div`

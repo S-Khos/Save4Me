@@ -22,14 +22,14 @@ const DownloadSection = ({lightBg, id, videoThmbn, title, lightText, primary, he
                                         value={'mp3'}
                                         onChange={(e) => setFormat(e.target.value)}
                                         checked={format === 'mp3'}
-                                        name="Audio"
+                                        label="Audio"
                                         color={'#01bf71'}
                                     />
                                     <Radio
                                         value={'mp4'}
                                         onChange={(e) => setFormat(e.target.value)}
                                         checked={format === 'mp4'}
-                                        name="Video"
+                                        label="Video"
                                         color={'#01bf71'}
                                     />
                                 </BtnWrap>

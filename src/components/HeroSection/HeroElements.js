@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {FaSearch, FaDownload} from 'react-icons/fa';
+import {FaSearch, FaArrowDown} from 'react-icons/fa';
 import {Link} from 'react-scroll';
 
 export const HeroContainer = styled.div`
@@ -177,11 +177,15 @@ export const BtnWrap = styled.div`
 `
 
 export const ScrollWrap = styled.div`
-    display: block;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+
 `
 
 export const Scroll = styled(Link)`
+    display: block;
     background-color: transparent;
     font-size: 1rem;
     color: #fff;
@@ -190,14 +194,9 @@ export const Scroll = styled(Link)`
     cursor: pointer;
     height: 48px;
     padding: 13px;
-
-    &:hover {
-        background-color: #026d40;
-        transition: 0.3s all ease-in-out;
-    }
 `
 
-export const DownArrow = styled(FaDownload)`
+export const DownArrow = styled(FaArrowDown)`
     color: white;
     font-size: 1.2rem;
 `

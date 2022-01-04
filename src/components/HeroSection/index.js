@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { HeroContainer, HeroBg, VideoBg, HeroContent, HeroH1, LinkInput, HeroBtnWrapper, Search, HeroP, Scroll, ScrollWrap, DownArrow } from './HeroElements'
 import Video from '../../videos/video1.mp4'
@@ -84,9 +85,9 @@ const HeroSection = ({render, setFetched, setMediaTitle, setMediaThumbnail}) => 
               </form>
               {render && <ScrollWrap>
                 <Scroll smooth={true} to={'download'}>
-                  Download
+                  Download Ready 
+                  <DownArrow/>
                 </Scroll>
-                <DownArrow/>
               </ScrollWrap>}
             </HeroContent>
         </HeroContainer>

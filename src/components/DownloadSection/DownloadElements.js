@@ -99,7 +99,8 @@ export const Subtitle = styled.p`
 
 export const BtnWrap = styled.div`
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
+    margin-bottom: 20px;
 `
 
 export const ImgWrap = styled.div`
