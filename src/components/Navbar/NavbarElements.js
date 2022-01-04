@@ -2,9 +2,7 @@ import styled from 'styled-components';
 import {Link as LinkS} from 'react-scroll';
 
 export const Nav = styled.nav`
-
-    ${'' /* #0d0d0d */}
-    background-color: black;
+    background-color: ${({scrollNav}) => (scrollNav ? '#010606' : 'transparent')};
     height: 80px;
     margin-top: -80px;
     display: flex;
@@ -16,7 +14,7 @@ export const Nav = styled.nav`
     z-index: 10;
     
     @media screen and (max-width: 960px) {
-        transition: 0.3s all ease-in-out;
+        transition: 0.4s all ease-in-out;
     }
 `
 
@@ -98,7 +96,10 @@ export const NavLinks = styled(LinkS)`
         border-top: 2px solid #01bf71;
     }
 
-    &:active{
+    ${'' /* &:active{
         color: #01bf71;
-    }
+        border-bottom: 2px solid #01bf71;
+        border-top: 2px solid #01bf71;
+        transition: 0.1s all ease-in-out;
+    } */}
 `

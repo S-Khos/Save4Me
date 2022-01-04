@@ -9,9 +9,24 @@ const Sidebar = ({toggle, isOpen}) => {
             </Icon>
             <SidebarWrapper>    
                 <SidebarMenu>
-                    <SidebarLink smooth={true} to="search" onClick={toggle}>Search</SidebarLink>
-                    <SidebarLink smooth={true} to="about" onClick={toggle}>About</SidebarLink>
-                    <SidebarLink smooth={true} to="contact" onClick={toggle}> Contact</SidebarLink>
+                    <SidebarLink                             
+                            smooth={true} 
+                            duration={700}
+                            spy={true}
+                            exact={true}
+                            to="search" onClick={toggle}>Search</SidebarLink>
+                    <SidebarLink                             
+                            smooth={true} 
+                            duration={700}
+                            spy={true}
+                            exact={true}
+                            to="about" onClick={toggle}>About</SidebarLink>
+                    <SidebarLink                             
+                            smooth={true} 
+                            duration={700}
+                            spy={true}
+                            exact={true}
+                            to="contact" onClick={toggle}> Contact</SidebarLink>
                 </SidebarMenu>
             </SidebarWrapper>
         </SidebarContainer>
