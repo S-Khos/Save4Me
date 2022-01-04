@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {FaSearch} from 'react-icons/fa';
+import {FaSearch, FaDownload} from 'react-icons/fa';
 import {Link} from 'react-scroll';
 
 export const HeroContainer = styled.div`
@@ -50,7 +50,7 @@ export const HeroH1 = styled.h1`
     color: #fff;
     font-size: 60px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     font-weight: bold;
 
     @media screen and (max-width: 768px) {
@@ -96,7 +96,7 @@ export const HeroP = styled.p`
     }
 
     @media screen and (max-width: 480px) {
-        font-size: 13px;
+        font-size: 14px;
         transition: 0.3s all ease-in-out;
     }
 
@@ -174,4 +174,30 @@ export const DownloadBtn = styled(Link)`
 export const BtnWrap = styled.div`
     display: flex;
     justify-content: flex-start;
+`
+
+export const ScrollWrap = styled.div`
+    display: block;
+    justify-content: center;
+`
+
+export const Scroll = styled(Link)`
+    background-color: transparent;
+    font-size: 1rem;
+    color: #fff;
+    align-text: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 48px;
+    padding: 13px;
+
+    &:hover {
+        background-color: #026d40;
+        transition: 0.3s all ease-in-out;
+    }
+`
+
+export const DownArrow = styled(FaDownload)`
+    color: white;
+    font-size: 1.2rem;
 `

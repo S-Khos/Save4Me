@@ -1,7 +1,6 @@
 import React from 'react'
 import { InfoContainer, InfoWrapper, InfoRow, Column1, TextWrapper, TopLine, Heading, Subtitle, Column2, BtnWrap, ImgWrap, Img, Button } from './InfoElements'
 
-
 const InfoSection = ({lightBg, id, videoThmbn, lightText, primary, headLine, description, topLine, img, darkText, buttonLabel, alt, includeBtn}) => {
     
     return (

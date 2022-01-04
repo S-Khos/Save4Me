@@ -1,0 +1,21 @@
+export var downloadSection = {
+    
+    id: 'download',
+    lightBg: true,
+    lightText: false,
+    lightTextDesc: false,
+    title: '',
+    topLine: 'Download',
+    headLine: 'Configure Your Download',
+    resolutions:[],
+    includeTitle: true,
+    description: 'Lorem ipsum dolor sit amet, Excepteur sint occaecat cupidatat non proident. Lorem ipsum dolor sit amet.',
+    includeBtn: true,
+    buttonLabel: 'Download File',
+    videoThmbn: false,
+    img: '',
+    alt: '',
+    dark: true,
+    primary: true,
+    darkText: true,
+}
