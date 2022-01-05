@@ -23,7 +23,7 @@ export var homeObjTwo = {
     lightText: false,
     lightTextDesc: false,
     topLine: 'Contact',
-    headLine: 'You Can Contact Us Here',
+    headLine: 'Contact Us Here',
     description: 'Please feel free to contact us if you have any questions or comments. We will get back to you as soon as possible.',
     includeBtn: true,
     buttonLabel: 'Contact Us',
