@@ -72,16 +72,18 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
                                         <FormControlLabel value="video" label="Video" checked={format === 'video'} control={<Radio color="secondary" onChange={(e) => {setFormat('video')}} />} />
                                     </RadioGroup>
                                 </BtnWrap>
-                                <Subtitle darkText={darkText}>Quality</Subtitle>
-                                <BtnWrap>
-                                    <RadioGroup
-                                    sx={{color:"#010606"}}
-                                    row 
-                                    value={quality}
-                                    color="primary">
+                                {format === 'video' ?
+                                    <Subtitle darkText={darkText}>Quality</Subtitle> : null}
+                                {format === 'video' ? 
+                                    <BtnWrap>
+                                        <RadioGroup
+                                        sx={{color:"#010606"}}
+                                        row 
+                                        value={quality}
+                                        color="primary">
                                         {renderResolutions(mediaResolutions)}
-                                    </RadioGroup>
-                                </BtnWrap>
+                                        </RadioGroup>
+                                    </BtnWrap> : null}
                                 {includeBtn && <BtnWrap>
                                     <Button
                                      primary={primary ? 1 : 0}

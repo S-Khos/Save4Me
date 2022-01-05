@@ -12,22 +12,30 @@ const HeroSection = ({setMediaID, setMediaResolutions, render, setFetched, setMe
     const [videoUrl, setVideoUrl] = useState("");
     const [videoID, setVideoID] = useState("");
     const [valid, setValid] = useState(null);
-    const acceptedUrl = ['instagram', 'youtube','reddit'];
+    const acceptedUrl = ['www.instagram.com', 'www.youtube.com','www.reddit.com', 'youtu.be'];
   
     useEffect(() => {
       var inputArea = document.getElementById('link-input');
-      var site = videoUrl.split(".")[1];
+      var site = videoUrl.split("/")[2];
 
       if (acceptedUrl.includes(site) && videoUrl.length > 0) {
           $(inputArea).removeClass('invalid-link');
           $(inputArea).removeClass('regular-link');  
           $(inputArea).addClass('valid-link');
           setValid(true);
-          if (videoUrl.includes('?') && videoUrl.includes('=')) {
+
+          if (site === 'youtu.be'){
+            setVideoID(videoUrl.split("/")[3]);
+            setMediaThumbnail("");
+            setMediaTitle("");
+            setMediaResolutions([]);
+
+          } else if (videoUrl.includes('?') && videoUrl.includes('=')) {
             let videoId = videoUrl.split("?")[1];
             setVideoID(videoId.split("=")[1]);
             setMediaThumbnail("");
             setMediaTitle("");
+            setMediaResolutions([]);
           }
   
       } else if(!acceptedUrl.includes(site) && videoUrl.length > 0) {
@@ -38,6 +46,7 @@ const HeroSection = ({setMediaID, setMediaResolutions, render, setFetched, setMe
           setFetched(false);
           setMediaThumbnail("");
           setMediaTitle("");
+          setMediaResolutions([]);
   
       } else if (videoUrl.length === 0) {
           $(inputArea).removeClass('invalid-link');
@@ -50,6 +59,7 @@ const HeroSection = ({setMediaID, setMediaResolutions, render, setFetched, setMe
           setFetched(false);
           setMediaThumbnail("");
           setMediaTitle("");
+          setMediaResolutions([]);
       }
     },[videoUrl]);
 
