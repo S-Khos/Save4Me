@@ -6,6 +6,7 @@ import InfoSection from '../components/InfoSection';
 import DownloadSection from '../components/DownloadSection';
 import {homeObjOne, homeObjTwo} from '../components/InfoSection/Data';
 import {downloadSection} from '../components/DownloadSection/Data';
+import Footer from '../components/Footer';
 
 const Home = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -39,7 +40,7 @@ const Home = () => {
             {render && <DownloadSection mediaID={mediaID} mediaResolutions={mediaResolutions} {...downloadSection}/>}
             <InfoSection {...homeObjOne}/>
             <InfoSection {...homeObjTwo}/>
-            
+            <Footer/>
         </>
     )
 }
