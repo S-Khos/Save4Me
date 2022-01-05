@@ -14,7 +14,7 @@ export const DownloadContainer = styled.div`
 export const DownloadWrapper = styled.div`
     display: grid;
     z-index: 1;
-    height: 860px;
+    height: 960px;
     max-width: 1100px;
     width: 100%;
     margin-right: auto;
