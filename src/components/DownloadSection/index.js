@@ -5,16 +5,17 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
 const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, title, lightText, primary, headLine, img, darkText, buttonLabel, alt, includeBtn}) => {
-    const [format, setFormat] = useState('audio');
-    const [quality, setQuality] = useState('144p');
-    const acceptedResolutions = ['1080p', '720p', '480p', '360p', '240p', '144p', '1440p50','1440p', '2160p50', '2160p', '1440p60', '2160p60', '1080p60', '1080p50', '720p60', '720p50'];
+    const [format, setFormat] = useState('video');
+    const [quality, setQuality] = useState('144');
+    const acceptedResolutions = ['1080p', '720p', '480p', '360p', '240p', '144p','1440p', '2160p'];
     let resolutionsList = [];
 
     const processResolutions = resolutions => {
+        resolutionsList = [];
         resolutions.map((resolution, index) => {
             if (acceptedResolutions.includes(resolution.qualityLabel)){
                 if (!resolutionsList.includes(resolution.qualityLabel)){
-                    resolutionsList.push(resolution.qualityLabel);
+                    resolutionsList.push(resolution.qualityLabel.split('p')[0]);
                 }
             }
             return 1;
@@ -23,13 +24,14 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
 
     const renderResolutions = resolutions => {
         processResolutions(resolutions);
+        resolutionsList.sort();
         return resolutionsList.map((resolution, index) => {
             return (
                 <FormControlLabel
                     key={index}
                     value={resolution}
                     control={<Radio color="secondary" onChange={(e) => {setQuality(resolution)}} />}
-                    label={resolution}
+                    label={`${resolution}p`}
                     checked={quality === resolution}
                 />
             )
@@ -37,7 +39,7 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
     }
 
     const fetchDownload = () => {
-        let videoURL = `https://save4me-fetch-api.herokuapp.com/download?id=${mediaID}&format=${format}&resolution=${quality.split('p')[0]}`;
+        let videoURL = `https://save4me-fetch-api.herokuapp.com/download?id=${mediaID}&format=${format}&resolution=${quality}`;
         let audioURL = `https://save4me-fetch-api.herokuapp.com/download?id=${mediaID}&format=${format}`;
         if (format === 'audio'){
             window.open(audioURL);
