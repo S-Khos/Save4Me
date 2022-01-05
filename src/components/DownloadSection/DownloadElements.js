@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import {Link} from 'react-scroll';
+import Divider from '@mui/material/Divider';
 
 export const DownloadContainer = styled.div`
     color: #fff;
@@ -52,15 +53,26 @@ export const TextWrapper = styled.div`
     padding-top: 0;
     padding-bottom: 40px;
 `
+export const Separator = styled(Divider)`
+    visibility: hidden;
+    @media screen and (max-width: 768px) {
+        visibility: visible;
+    }
+`
 
 export const MediaTitle = styled.p`
     color: #010606;
-    font-size: 19px;
+    font-size: 18px;
     line-height: 20px;
     font-weight: 700;
     ${'' /* text-align: center; */}
     margin-top: 20px;
     margin-bottom: 20px;
+
+    @media screen and (max-width: 768px) {
+        font-size: 17px;
+        margin-bottom: 30px;
+    }
 
 `
 
@@ -79,17 +91,20 @@ export const Heading = styled.h1`
     font-size: 38px;
     line-height: 1.1;
     font-weight: 600;
-    color: black;
     color: ${({lightText}) => (lightText ? '#f7f8fa' : '#010606')};
 
+    @media screen and (max-width: 768px) {
+        font-size: 38px;
+        margin-top: 12px;
+    }
     @media screen and (max-width: 480px) {
         font-size: 32px;
+        margin-top: 12px;
     }
 `
 
 export const Subtitle = styled.p`
     max-width: 440px;
-    margin-bottom: 35px;
     font-size: 25px;
     line-height: 15px;
     font-weight: 500;
@@ -101,6 +116,7 @@ export const BtnWrap = styled.div`
     display: flex;
     justify-content: flex-start;
     margin-bottom: 20px;
+    margin-top: 20px;
 `
 
 export const ImgWrap = styled.div`
@@ -111,7 +127,7 @@ export const ImgWrap = styled.div`
 export const Img = styled.img`
     width: 100%;
     padding-right: 0;
-    border-radius: .7rem;
+    border-radius: .2rem;
 `
 
 export const Button = styled(Link)`

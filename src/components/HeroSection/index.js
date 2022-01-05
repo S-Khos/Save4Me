@@ -7,7 +7,7 @@ import $ from "jquery";
 import './Main.css';
 import axios from 'axios';
 
-const HeroSection = ({render, setFetched, setMediaTitle, setMediaThumbnail}) => {
+const HeroSection = ({setMediaID, setMediaResolutions, render, setFetched, setMediaTitle, setMediaThumbnail}) => {
     
     const [videoUrl, setVideoUrl] = useState("");
     const [videoID, setVideoID] = useState("");
@@ -55,11 +55,15 @@ const HeroSection = ({render, setFetched, setMediaTitle, setMediaThumbnail}) => 
 
     const submit = async () => {
       if (valid){
+        //http://localhost:5000/api/video?id=${videoID}
+        // https://save4me-fetch-api.herokuapp.com/api/video?id=${videoID}
         await axios.get(`https://save4me-fetch-api.herokuapp.com/api/video?id=${videoID}`)
         .then(res => {
-          if (res.data.title.length > 0 && res.data.thumbnailURL.length > 0) {
+          if (res.data.title.length > 0 && res.data.thumbnailURL.length > 0 && res.data.resolutions.length > 0) {
             setMediaTitle(res.data.title);
             setMediaThumbnail(res.data.thumbnailURL);
+            setMediaResolutions(res.data.resolutions);
+            setMediaID(videoID);
             setFetched(true);
           }
         })
@@ -85,7 +89,6 @@ const HeroSection = ({render, setFetched, setMediaTitle, setMediaThumbnail}) => 
               </form>
               {render && <ScrollWrap>
                 <Scroll smooth={true} to={'download'}>
-                  Download Ready 
                   <DownArrow/>
                 </Scroll>
               </ScrollWrap>}

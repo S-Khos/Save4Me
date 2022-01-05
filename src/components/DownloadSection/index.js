@@ -1,11 +1,50 @@
 import React, {useState} from 'react'
-import { DownloadContainer, DownloadRow, DownloadWrapper, TextWrapper, Column1, Column2, MediaTitle, TopLine, Heading, Subtitle, BtnWrap, Img, ImgWrap, Button } from './DownloadElements'
+import { DownloadContainer, DownloadRow, DownloadWrapper, TextWrapper, Column1, Column2, MediaTitle, Heading, Subtitle, BtnWrap, Img, ImgWrap, Button, Separator } from './DownloadElements'
 import Radio from '@material-ui/core/Radio';
-import RadioGroup, { useRadioGroup } from '@mui/material/RadioGroup';
+import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
-const DownloadSection = ({lightBg, id, videoThmbn, title, lightText, primary, headLine, description, topLine, img, darkText, buttonLabel, alt, includeBtn}) => {
-    const [format, setFormat] = useState('');
+const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, title, lightText, primary, headLine, img, darkText, buttonLabel, alt, includeBtn}) => {
+    const [format, setFormat] = useState('audio');
+    const [quality, setQuality] = useState('144p');
+    const acceptedResolutions = ['1080p', '720p', '480p', '360p', '240p', '144p', '1440p50','1440p', '2160p50', '2160p', '1440p60', '2160p60', '1080p60', '1080p50', '720p60', '720p50'];
+    let resolutionsList = [];
+
+    const processResolutions = resolutions => {
+        resolutions.map((resolution, index) => {
+            if (acceptedResolutions.includes(resolution.qualityLabel)){
+                if (!resolutionsList.includes(resolution.qualityLabel)){
+                    resolutionsList.push(resolution.qualityLabel);
+                }
+            }
+            return 1;
+        });
+    }
+
+    const renderResolutions = resolutions => {
+        processResolutions(resolutions);
+        return resolutionsList.map((resolution, index) => {
+            return (
+                <FormControlLabel
+                    key={index}
+                    value={resolution}
+                    control={<Radio color="secondary" onChange={(e) => {setQuality(resolution)}} />}
+                    label={resolution}
+                    checked={quality === resolution}
+                />
+            )
+        });
+    }
+
+    const fetchDownload = () => {
+        let videoURL = `https://save4me-fetch-api.herokuapp.com/download?id=${mediaID}&format=${format}&resolution=${quality.split('p')[0]}`;
+        let audioURL = `https://save4me-fetch-api.herokuapp.com/download?id=${mediaID}&format=${format}`;
+        if (format === 'audio'){
+            window.open(audioURL);
+        } else {
+            window.open(videoURL);
+        }
+    }
 
     return (
         <>
@@ -14,7 +53,6 @@ const DownloadSection = ({lightBg, id, videoThmbn, title, lightText, primary, he
                     <DownloadRow videoThmbn={videoThmbn}>
                         <Column1>
                             <TextWrapper>
-                                <TopLine>{topLine}</TopLine>
                                 <Heading lightText={lightText}>{headLine}</Heading>
                             </TextWrapper>
                             <TextWrapper>
@@ -24,29 +62,41 @@ const DownloadSection = ({lightBg, id, videoThmbn, title, lightText, primary, he
                                     sx={{color:"#010606"}}
                                     row 
                                     value={format}
-                                    onChange={(e) => {setFormat(e.target.value)}} name="format" defaultValue="mp3">
-                                        <FormControlLabel value="mp3" label="Audio" control={<Radio color="success"/>} />
-                                        <FormControlLabel value="mp4" label="Video" control={<Radio color="success"/>} />
+                                    color="primary"
+                                    >
+                                        <FormControlLabel value="audio" label="Audio" checked={format === 'audio'} control={<Radio color="secondary" onChange={(e) => {setFormat('audio')}} />} />
+                                        <FormControlLabel value="video" label="Video" checked={format === 'video'} control={<Radio color="secondary" onChange={(e) => {setFormat('video')}} />} />
                                     </RadioGroup>
                                 </BtnWrap>
                                 <Subtitle darkText={darkText}>Quality</Subtitle>
-                            </TextWrapper>
-                            {includeBtn && <BtnWrap>
+                                <BtnWrap>
+                                    <RadioGroup
+                                    sx={{color:"#010606"}}
+                                    row 
+                                    value={quality}
+                                    color="primary">
+                                        {renderResolutions(mediaResolutions)}
+                                    </RadioGroup>
+                                </BtnWrap>
+                                {includeBtn && <BtnWrap>
                                     <Button
                                      primary={primary ? 1 : 0}
                                      smooth={true}
                                      duration={500}
                                      spy={true}
-                                     exact="true"
+                                     exact={true}
                                      offset={-80}
+                                     onClick={() => {fetchDownload()}}
                                     >{buttonLabel}</Button>
                             </BtnWrap>}
+                            </TextWrapper>
                         </Column1>
                         <Column2>
                             <ImgWrap>
                                 <Img src={img} alt={alt}/>
                             </ImgWrap>
                             <MediaTitle>{title}</MediaTitle>
+                            <Separator/>
                         </Column2>
                     </DownloadRow>
                 </DownloadWrapper>

@@ -111,6 +111,7 @@ app.get(
                 const ext = exts[format];
                 const contentType = contentTypes[format];
                 const filename = `${encodeURI(sanitize(title))}.${ext}`;
+                console.log(filename);
                 
                 res.setHeader('Content-Type', contentType);
                 res.setHeader('Content-Disposition', `attachment; filename=${filename}; filename*=UTF-8''${filename}`);

@@ -186,17 +186,16 @@ export const ScrollWrap = styled.div`
 
 export const Scroll = styled(Link)`
     word-wrap: break-word;
-    width: 220px;
+    width: fit-content;
     background-color: transparent;
-    ${'' /* font-size: 1.5rem; */}
-    font-size: 24px;
+    ${'' /* font-size: 24px; */}
     color: #fff;
     text-align: center;
     align-text: center;
     justify-content: center;
     cursor: pointer;
-    height: 48px;
-    padding: 13px;
+    height: fit-content;
+    padding: 20px;
     @media screen and (max-width: 768px) {
         font-size: 24px;
         transition: 0.3s all ease-in-out;
@@ -209,15 +208,15 @@ export const Scroll = styled(Link)`
 `
 
 export const DownArrow = styled(FaArrowDown)`
-    color: white;
-    font-size: 1.2rem;
+    color: "#fff";
+    font-size: 30px;
     @media screen and (max-width: 768px) {
-        font-size: 24px;
+        font-size: 26px;
         transition: 0.3s all ease-in-out;
     }
 
     @media screen and (max-width: 480px) {
-        font-size: 19px;
+        font-size: 24px;
         transition: 0.3s all ease-in-out;
     }
 `

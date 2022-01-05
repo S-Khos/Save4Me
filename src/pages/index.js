@@ -11,6 +11,8 @@ const Home = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [mediaTitle, setMediaTitle] = useState('');
     const [mediaThumbnail, setMediaThumbnail] = useState('');
+    const [mediaResolutions, setMediaResolutions] = useState([]);
+    const [mediaID, setMediaID] = useState('');
     const [fetched, setFetched] = useState(false);
     const [render, setRender] = useState(false);
 
@@ -23,7 +25,7 @@ const Home = () => {
             setRender(false);
         }
 
-    },[mediaTitle, mediaThumbnail, fetched, render]);
+    },[mediaTitle, mediaThumbnail, mediaResolutions, fetched, render]);
 
     const toggle = () => {
         setIsOpen(!isOpen);
@@ -33,8 +35,8 @@ const Home = () => {
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
-            <HeroSection render={render} setFetched={setFetched} setMediaTitle={setMediaTitle} setMediaThumbnail={setMediaThumbnail}/>
-            {render && <DownloadSection {...downloadSection}/>}
+            <HeroSection setMediaID={setMediaID} setMediaResolutions={setMediaResolutions} render={render} setFetched={setFetched} setMediaTitle={setMediaTitle} setMediaThumbnail={setMediaThumbnail}/>
+            {render && <DownloadSection mediaID={mediaID} mediaResolutions={mediaResolutions} {...downloadSection}/>}
             <InfoSection {...homeObjOne}/>
             <InfoSection {...homeObjTwo}/>
             
