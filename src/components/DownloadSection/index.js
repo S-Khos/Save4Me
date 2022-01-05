@@ -13,9 +13,11 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
     const processResolutions = resolutions => {
         resolutionsList = [];
         resolutions.map((resolution, index) => {
-            if (acceptedResolutions.includes(resolution.qualityLabel.split('p')[0])){
-                if (!resolutionsList.includes(resolution.qualityLabel.split('p')[0])){
-                    resolutionsList.push(resolution.qualityLabel.split('p')[0]);
+            if (resolution.qualityLabel !== null){
+                if (acceptedResolutions.includes(resolution.qualityLabel.split('p')[0])){
+                    if (!resolutionsList.includes(resolution.qualityLabel.split('p')[0])){
+                        resolutionsList.push(resolution.qualityLabel.split('p')[0]);
+                    }
                 }
             }
             return 1;
@@ -24,7 +26,7 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
 
     const renderResolutions = resolutions => {
         processResolutions(resolutions);
-        resolutionsList.sort();
+        resolutionsList.sort((a, b) => a - b);
         return resolutionsList.map((resolution, index) => {
             return (
                 <FormControlLabel
