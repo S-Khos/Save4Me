@@ -7,14 +7,14 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, title, lightText, primary, headLine, img, darkText, buttonLabel, alt, includeBtn}) => {
     const [format, setFormat] = useState('video');
     const [quality, setQuality] = useState('144');
-    const acceptedResolutions = ['1080p', '720p', '480p', '360p', '240p', '144p','1440p', '2160p'];
+    const acceptedResolutions = ['1080', '720', '480', '360', '240', '144','1440', '2160'];
     let resolutionsList = [];
 
     const processResolutions = resolutions => {
         resolutionsList = [];
         resolutions.map((resolution, index) => {
-            if (acceptedResolutions.includes(resolution.qualityLabel)){
-                if (!resolutionsList.includes(resolution.qualityLabel)){
+            if (acceptedResolutions.includes(resolution.qualityLabel.split('p')[0])){
+                if (!resolutionsList.includes(resolution.qualityLabel.split('p')[0])){
                     resolutionsList.push(resolution.qualityLabel.split('p')[0]);
                 }
             }
