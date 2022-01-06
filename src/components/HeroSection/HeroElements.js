@@ -39,7 +39,7 @@ export const HeroContent = styled.div`
     z-index: 3;
     max-width: 1200px;
     position: absolute;
-    padding: 8px 24px;
+    padding: 50px 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -89,7 +89,7 @@ export const HeroP = styled.p`
     text-align: center;
     margin:auto;
     max-width: 600px;
-    margin-bottom: 80px;
+    margin-bottom: 35px;
     @media screen and (max-width: 768px) {
         font-size: 27px;
         transition: 0.3s all ease-in-out;
@@ -118,13 +118,13 @@ export const LinkInput = styled.input`
 
     @media screen and (max-width: 768px) {
         width: 22rem;
-        font-size: 120%;
+        font-size: 140%;
         transition: 0.3s all ease-in-out;
     }
 
     @media screen and (max-width: 480px) {
-        width: 14rem;
-        font-size: 90%;
+        width: 16rem;
+        font-size: 140%;
         transition: 0.3s all ease-in-out;
     }
 
@@ -195,7 +195,6 @@ export const Scroll = styled(Link)`
     justify-content: center;
     cursor: pointer;
     height: fit-content;
-    padding: 20px;
     @media screen and (max-width: 768px) {
         font-size: 24px;
         transition: 0.3s all ease-in-out;
