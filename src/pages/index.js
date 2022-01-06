@@ -3,8 +3,10 @@ import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
 import InfoSection from '../components/InfoSection';
+import ContactSection from '../components/ContactSection';
 import DownloadSection from '../components/DownloadSection';
-import {homeObjOne, homeObjTwo} from '../components/InfoSection/Data';
+import {AboutData} from '../components/InfoSection/Data';
+import {ContactData} from '../components/ContactSection/Data';
 import {downloadSection} from '../components/DownloadSection/Data';
 import Footer from '../components/Footer';
 
@@ -38,8 +40,8 @@ const Home = () => {
             <Navbar toggle={toggle}/>
             <HeroSection setMediaID={setMediaID} setMediaResolutions={setMediaResolutions} render={render} setFetched={setFetched} setMediaTitle={setMediaTitle} setMediaThumbnail={setMediaThumbnail}/>
             {render && <DownloadSection mediaID={mediaID} mediaResolutions={mediaResolutions} {...downloadSection}/>}
-            <InfoSection {...homeObjOne}/>
-            <InfoSection {...homeObjTwo}/>
+            <InfoSection {...AboutData}/>
+            <ContactSection {...ContactData}/>
             <Footer/>
         </>
     )

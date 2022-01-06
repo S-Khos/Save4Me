@@ -1,12 +1,17 @@
-export var homeObjOne = {
+export var AboutData = {
     
     id: 'about',
     lightBg: false,
     lightText: true,
     lightTextDesc: true,
     topLine: 'About',
-    headLine: 'What Is Save4Me?',
-    description: 'Save4Me is a universal media downloading service that offers audio (MP3) and video (MP4) formats for download configurations. Save4Me offers all available resolution qualities from 144p to 1080p. Save4Me is a free service that is available to all users. Save4Me is a free service that is available to all users and supported on all platforms.',
+    headLine1: 'What Is Save4Me?',
+    headLine2: 'How Does It Work?',
+    description1: 'Save4Me is a universal media downloading service that offers audio (MP3) and video (MP4) formats for download configurations.',
+    description2: 'Save4Me offers all available resolutions from 144p to 2160p for videos and the highest quality for audio files.',
+    description3: '',
+    description4: 'Save4Me is a free service that is available to all users and supported on all platforms.',
+    description5: '',
     includeBtn: false,
     buttonLabel: '',
     videoThmbn: false,
@@ -15,22 +20,4 @@ export var homeObjOne = {
     dark: true,
     primary: true,
     darkText: false,
-}
-
-export var homeObjTwo = {
-    id: 'contact',
-    lightBg: true,
-    lightText: false,
-    lightTextDesc: false,
-    topLine: 'Contact',
-    headLine: 'Contact Us Here',
-    description: 'Please feel free to contact us if you have any questions or comments. We will get back to you as soon as possible.',
-    includeBtn: true,
-    buttonLabel: 'Contact Us',
-    videoThmbn: false,
-    img:'',
-    alt: '',
-    dark: true,
-    primary: true,
-    darkText: true,
 }
