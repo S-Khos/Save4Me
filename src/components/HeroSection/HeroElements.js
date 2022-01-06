@@ -85,13 +85,13 @@ export const HeroH2 = styled.h2`
 `
 export const HeroP = styled.p`
     color: #fff;
-    font-size: 27px;
+    font-size: 24.3px;
     text-align: center;
     margin:auto;
     max-width: 600px;
     margin-bottom: 35px;
     @media screen and (max-width: 768px) {
-        font-size: 27px;
+        font-size: 24px;
         transition: 0.3s all ease-in-out;
     }
 
@@ -123,7 +123,7 @@ export const LinkInput = styled.input`
     }
 
     @media screen and (max-width: 480px) {
-        width: 16rem;
+        width: 13.5rem;
         font-size: 140%;
         transition: 0.3s all ease-in-out;
     }
