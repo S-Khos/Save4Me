@@ -67,7 +67,8 @@ const HeroSection = ({setMediaID, setMediaResolutions, render, setFetched, setMe
       if (valid){
         //http://localhost:5000/api/video?id=${videoID}
         // https://save4me-fetch-api.herokuapp.com/api/video?id=${videoID}
-        await axios.get(`https://save4me-fetch-api.herokuapp.com/api/video?id=${videoID}`)
+        //https://blissful-shore-337401.nn.r.appspot.com/api/video?id=${videoID}
+        await axios.get(`https://blissful-shore-337401.nn.r.appspot.com/api/video?id=${videoID}`)
         .then(res => {
           if (res.data.title.length > 0 && res.data.thumbnailURL.length > 0 && res.data.resolutions.length > 0) {
             setMediaTitle(res.data.title);

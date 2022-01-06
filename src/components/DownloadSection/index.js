@@ -41,8 +41,8 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
     }
 
     const fetchDownload = () => {
-        let videoURL = `https://save4me-fetch-api.herokuapp.com/download?id=${mediaID}&format=${format}&resolution=${quality}`;
-        let audioURL = `https://save4me-fetch-api.herokuapp.com/download?id=${mediaID}&format=${format}`;
+        let videoURL = `https://blissful-shore-337401.nn.r.appspot.com/download?id=${mediaID}&format=${format}&resolution=${quality}`;
+        let audioURL = `https://blissful-shore-337401.nn.r.appspot.com/download?id=${mediaID}&format=${format}`;
         if (format === 'audio'){
             window.open(audioURL);
         } else {
