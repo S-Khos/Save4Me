@@ -7,6 +7,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, title, lightText, primary, headLine, img, darkText, buttonLabel, alt, includeBtn}) => {
     const [format, setFormat] = useState('video');
     const [quality, setQuality] = useState('144');
+    const [bitrate, setBitrate] = useState('192k');
     const acceptedResolutions = ['1080', '720', '480', '360', '240', '144','1440', '2160'];
     let resolutionsList = [];
 
@@ -42,7 +43,7 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
 
     const fetchDownload = () => {
         let videoURL = `https://blissful-shore-337401.nn.r.appspot.com/download?id=${mediaID}&format=${format}&resolution=${quality}`;
-        let audioURL = `https://blissful-shore-337401.nn.r.appspot.com/download?id=${mediaID}&format=${format}`;
+        let audioURL = `https://blissful-shore-337401.nn.r.appspot.com/download?id=${mediaID}&format=${format}&bitrate=${bitrate}`;
         if (format === 'audio'){
             window.open(audioURL);
         } else {
@@ -73,7 +74,7 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
                                     </RadioGroup>
                                 </BtnWrap>
                                 {format === 'video' ?
-                                    <Subtitle darkText={darkText}>Quality</Subtitle> : null}
+                                    <Subtitle darkText={darkText}>Quality</Subtitle> : <Subtitle darkText={darkText}>Bitrate</Subtitle>}
                                 {format === 'video' ? 
                                     <BtnWrap>
                                         <RadioGroup
@@ -83,7 +84,23 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
                                         color="primary">
                                         {renderResolutions(mediaResolutions)}
                                         </RadioGroup>
-                                    </BtnWrap> : null}
+                                    </BtnWrap> : 
+                                    <BtnWrap>
+                                        <RadioGroup
+                                        sx={{color:"#010606"}}
+                                        row 
+                                        value={bitrate}
+                                        color="primary">
+                                            <FormControlLabel value="64k" label="64k" checked={bitrate === '64k'} control={<Radio color="secondary" onChange={(e) => {setBitrate('64k')}} />} />
+                                            <FormControlLabel value="128k" label="128k" checked={bitrate === '128k'} control={<Radio color="secondary" onChange={(e) => {setBitrate('128k')}} />} />
+                                            <FormControlLabel value="192k" label="192k" checked={bitrate === '192k'} control={<Radio color="secondary" onChange={(e) => {setBitrate('192k')}} />} />
+                                            <FormControlLabel value="256k" label="256k" checked={bitrate === '256k'} control={<Radio color="secondary" onChange={(e) => {setBitrate('256k')}} />} />
+                                            <FormControlLabel value="320k" label="320k" checked={bitrate === '320k'} control={<Radio color="secondary" onChange={(e) => {setBitrate('320k')}} />} />
+                                        </RadioGroup>
+                                    </BtnWrap>
+                                    
+                                    
+                                    }
                                 {includeBtn && <BtnWrap>
                                     <Button
                                      primary={primary ? 1 : 0}
