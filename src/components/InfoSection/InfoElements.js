@@ -87,6 +87,7 @@ export const Subtitle = styled.p`
     font-size:18px;
     line-height: 24px;
     margin-bottom: 10px;
+    text-align: center;
     color: ${({darkText}) => (darkText ? '#010606' : '#fff')};
 
 `

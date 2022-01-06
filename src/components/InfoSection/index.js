@@ -12,8 +12,8 @@ const InfoSection = ({lightBg, id, videoThmbn, lightText, primary, description1,
                             <TextWrapper>
                                 <TopLine>{topLine}</TopLine>
                                 <Heading lightText={lightText}>{headLine1}</Heading>
-                                <Subtitle>○ {description1}</Subtitle>
-                                <Subtitle>○ {description2}</Subtitle>
+                                <Subtitle>{description1}</Subtitle>
+                                <Subtitle>{description2}</Subtitle>
                      
                                 {includeBtn && <BtnWrap>
                                     <Button
@@ -31,10 +31,10 @@ const InfoSection = ({lightBg, id, videoThmbn, lightText, primary, description1,
                         <Column2>
                             <TextWrapper>
                                 <Heading lightText={lightText}>{headLine2}</Heading>
-                                <Subtitle>○ Copy the media URL and paste it into the search bar</Subtitle>
-                                <Subtitle>○ Scroll down to the download section</Subtitle>
-                                <Subtitle>○ Choose your desired format and quality</Subtitle>
-                                <Subtitle>○ Download the file</Subtitle>
+                                <Subtitle>Copy the media URL and paste it into the search bar</Subtitle>
+                                <Subtitle>Scroll down to the download section</Subtitle>
+                                <Subtitle>Choose your desired format and quality</Subtitle>
+                                <Subtitle>Download the file</Subtitle>
                             </TextWrapper>
                         </Column2>
                     </InfoRow>
