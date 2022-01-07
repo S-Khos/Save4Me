@@ -3,6 +3,7 @@ import { DownloadContainer, DownloadRow, DownloadWrapper, TextWrapper, Column1, 
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import JsFileDownloader from 'js-file-downloader';
 
 const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, title, lightText, primary, headLine, img, darkText, buttonLabel, alt, includeBtn}) => {
     const [format, setFormat] = useState('video');
@@ -24,13 +25,30 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
     }
 
     const fetchDownload = () => {
-        let videoURL = `https://blissful-shore-337401.nn.r.appspot.com/download?id=${mediaID}&format=${format}&resolution=${quality}`;
-        let audioURL = `https://blissful-shore-337401.nn.r.appspot.com/download?id=${mediaID}&format=${format}&bitrate=${bitrate}`;
+        let url;
+        let ext;
         if (format === 'audio'){
-            window.open(audioURL);
+            ext = 'mp3';
+            url = `https://blissful-shore-337401.nn.r.appspot.com/download?id=${mediaID}&format=${format}&bitrate=${bitrate}`;
         } else {
-            window.open(videoURL);
+            ext = 'mp4';
+            url = `https://blissful-shore-337401.nn.r.appspot.com/download?id=${mediaID}&format=${format}&resolution=${quality}`;
         }
+
+        let filename = title.replace(/[^a-z0-9]/gi, '-');
+
+        new JsFileDownloader({ 
+            url: url,
+            filename: `${filename}.${ext}`,
+          })
+          .then(function () {
+              // add download progress bar
+            console.log('Downloaded');
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      
     }
 
     return (
