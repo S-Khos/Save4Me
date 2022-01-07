@@ -4,11 +4,19 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import JsFileDownloader from 'js-file-downloader';
+import { useLoading, ThreeDots } from '@agney/react-loading';
 
 const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, title, lightText, primary, headLine, img, darkText, buttonLabel, alt, includeBtn}) => {
     const [format, setFormat] = useState('video');
     const [quality, setQuality] = useState('144');
     const [bitrate, setBitrate] = useState('192k');
+    const [btnLabel, setBtnLabel] = useState(buttonLabel);
+    const [isLoading, setIsLoading] = useState(false);
+    const { containerProps, indicatorEl } = useLoading({
+        loading: isLoading,
+        indicator: <ThreeDots width="40" />,
+    });
+    
 
     const renderResolutions = resolutions => {
         return resolutions.map((resolution, index) => {
@@ -36,17 +44,20 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
         }
 
         let filename = title.replace(/[^a-z0-9]/gi, '-');
-
+        setIsLoading(true);
+        setBtnLabel('');
         new JsFileDownloader({ 
             url: url,
             filename: `${filename}.${ext}`,
           })
           .then(function () {
-              // add download progress bar
-            console.log('Downloaded');
+            setIsLoading(false);
+            setBtnLabel(buttonLabel);
           })
           .catch(function (error) {
             console.log(error);
+            setIsLoading(false);
+            setBtnLabel(buttonLabel);
           });
       
     }
@@ -102,7 +113,7 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
                                     
                                     }
                                 {includeBtn && <BtnWrap>
-                                    <Button
+                                    <Button {...containerProps}
                                      primary={primary ? 1 : 0}
                                      smooth={true}
                                      duration={500}
@@ -110,7 +121,7 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
                                      exact={true}
                                      offset={-80}
                                      onClick={() => {fetchDownload()}}
-                                    >{buttonLabel}</Button>
+                                    >{btnLabel}{indicatorEl}</Button>
                             </BtnWrap>}
                             </TextWrapper>
                         </Column1>
