@@ -65,8 +65,8 @@ export const MediaTitle = styled.p`
     font-size: 18px;
     line-height: 20px;
     font-weight: 700;
-    ${'' /* text-align: center; */}
-    margin-top: 20px;
+    text-align: center;
+    margin-top: 10px;
     margin-bottom: 20px;
 
     @media screen and (max-width: 768px) {

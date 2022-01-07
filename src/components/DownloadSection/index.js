@@ -8,34 +8,16 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
     const [format, setFormat] = useState('video');
     const [quality, setQuality] = useState('144');
     const [bitrate, setBitrate] = useState('192k');
-    const acceptedResolutions = ['1080', '720', '480', '360', '240', '144','1440', '2160'];
-    let resolutionsList = [];
-
-    const processResolutions = resolutions => {
-        resolutionsList = [];
-        resolutions.map((resolution, index) => {
-            if (resolution.qualityLabel !== null){
-                if (acceptedResolutions.includes(resolution.qualityLabel.split('p')[0])){
-                    if (!resolutionsList.includes(resolution.qualityLabel.split('p')[0])){
-                        resolutionsList.push(resolution.qualityLabel.split('p')[0]);
-                    }
-                }
-            }
-            return 1;
-        });
-    }
 
     const renderResolutions = resolutions => {
-        processResolutions(resolutions);
-        resolutionsList.sort((a, b) => a - b);
-        return resolutionsList.map((resolution, index) => {
+        return resolutions.map((resolution, index) => {
             return (
                 <FormControlLabel
                     key={index}
-                    value={resolution}
-                    control={<Radio color="secondary" onChange={(e) => {setQuality(resolution)}} />}
+                    value={resolution.toString()}
+                    control={<Radio color="secondary" onChange={(e) => {setQuality(resolution.toString())}} />}
                     label={`${resolution}p`}
-                    checked={quality === resolution}
+                    checked={quality === resolution.toString()}
                 />
             )
         });

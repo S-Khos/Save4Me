@@ -66,7 +66,6 @@ const HeroSection = ({setMediaID, setMediaResolutions, render, setFetched, setMe
     const submit = async () => {
       if (valid){
         //http://localhost:5000/api/video?id=${videoID}
-        // https://save4me-fetch-api.herokuapp.com/api/video?id=${videoID}
         //https://blissful-shore-337401.nn.r.appspot.com/api/video?id=${videoID}
         await axios.get(`https://blissful-shore-337401.nn.r.appspot.com/api/video?id=${videoID}`)
         .then(res => {
