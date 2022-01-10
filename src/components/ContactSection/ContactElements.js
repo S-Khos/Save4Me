@@ -85,9 +85,13 @@ export const BtnWrap = styled.div`
 `
 
 export const ImgWrap = styled.div`
-    max-width: 555px;
+    visibility: show;
+    max-width: 333px;
     height: 100%;
     margin: 0 15px 0 0;
+    @media screen and (max-width: 768px) {
+        visibility: hidden;
+    }
 `
 
 export const Img = styled.img`

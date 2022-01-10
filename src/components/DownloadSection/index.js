@@ -16,19 +16,22 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
         loading: isLoading,
         indicator: <ThreeDots width="40" />,
     });
+    const acceptedQuality = ['144', '240', '360', '480', '720', '1080', '1440', '2160'];
     
 
     const renderResolutions = resolutions => {
         return resolutions.map((resolution, index) => {
-            return (
-                <FormControlLabel
-                    key={index}
-                    value={resolution.toString()}
-                    control={<Radio color="secondary" onChange={(e) => {setQuality(resolution.toString())}} />}
-                    label={`${resolution}p`}
-                    checked={quality === resolution.toString()}
-                />
-            )
+            if (acceptedQuality.includes(resolution.toString())) {
+                return (
+                    <FormControlLabel
+                        key={index}
+                        value={resolution.toString()}
+                        control={<Radio color="secondary" onChange={(e) => {setQuality(resolution.toString())}} />}
+                        label={`${resolution}p`}
+                        checked={quality === resolution.toString()}
+                    />
+                )
+            }
         });
     }
 
@@ -58,8 +61,6 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
             console.log(error);
             setIsLoading(false);
             setBtnLabel(buttonLabel);
-            fetchDownload();
-
           });
       
     }

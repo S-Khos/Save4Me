@@ -23,26 +23,28 @@ const InfoSection = ({lightBg, id, videoThmbn, lightText, description1,descripti
                                 <Subtitle>Choose your desired format and quality</Subtitle>
                                 <Subtitle>Download the file</Subtitle>
                             </TextWrapper>
-                            <HeadingH2 lightText={lightText}>
-                                Supported Platforms
-                            </HeadingH2>
-                            <SocialIcons>
-                                <SocialIconLink href="/"  aria-label="Facebook">
-                                    <FaFacebook/>
-                                </SocialIconLink>
-                                <SocialIconLink href="/"  aria-label="Instagram">
-                                    <FaInstagram/>
-                                </SocialIconLink>
-                                <SocialIconLink href="/" aria-label="Twitter">
-                                    <FaTwitter/>
-                                </SocialIconLink>
-                                <SocialIconLink href="/" aria-label="Youtube">
-                                    <FaYoutube/>
-                                </SocialIconLink>
-                                <SocialIconLink href="/" aria-label="Reddit">
-                                    <FaReddit/>
-                                </SocialIconLink>
-                            </SocialIcons>
+                            <TextWrapper>
+                                <HeadingH2 lightText={lightText}>
+                                    Supported Platforms
+                                </HeadingH2>
+                                <SocialIcons>
+                                    <SocialIconLink href="/"  aria-label="Facebook">
+                                        <FaFacebook/>
+                                    </SocialIconLink>
+                                    <SocialIconLink href="/"  aria-label="Instagram">
+                                        <FaInstagram/>
+                                    </SocialIconLink>
+                                    <SocialIconLink href="/" aria-label="Twitter">
+                                        <FaTwitter/>
+                                    </SocialIconLink>
+                                    <SocialIconLink href="/" aria-label="Youtube">
+                                        <FaYoutube/>
+                                    </SocialIconLink>
+                                    <SocialIconLink href="/" aria-label="Reddit">
+                                        <FaReddit/>
+                                    </SocialIconLink>
+                                </SocialIcons>
+                            </TextWrapper>
                         </Column1>
                         <Column2>
                             <ImgWrap>

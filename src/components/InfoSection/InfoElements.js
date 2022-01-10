@@ -109,13 +109,20 @@ export const BtnWrap = styled.div`
 `
 
 export const ImgWrap = styled.div`
+    visibility: show;
     max-width: 555px;
     height: 100%;
     margin: 0 15px 0 0;
+    padding-right: 0;
+
+    @media screen and (max-width: 768px) {
+        visibility: hidden;
+    }
 `
 
 export const Img = styled.img`
     width: 100%;
+    padding-right: 0;
 `
 
 export const Button = styled(Link)`
@@ -138,10 +145,7 @@ export const SocialIcons = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 70%;
-    @media screen and (max-width: 768px) {
-        margin-bottom: 40px;
-    }
+    width: 300px;
 `
 
 export const SocialIconLink = styled.a`
