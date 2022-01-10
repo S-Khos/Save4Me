@@ -87,7 +87,6 @@ export const Subtitle = styled.p`
     font-size:18px;
     line-height: 24px;
     margin-bottom: 10px;
-    text-align: center;
     color: ${({darkText}) => (darkText ? '#010606' : '#fff')};
 
 `
@@ -99,15 +98,13 @@ export const BtnWrap = styled.div`
 `
 
 export const ImgWrap = styled.div`
-    max-width: 555px;
+    max-width: 444px;
     height: 100%;
+    margin: auto;
 `
 
 export const Img = styled.img`
     width: 100%;
-    margin: 0 0 10px 0;
-    padding-right: 0;
-    border-radius: .7rem;
 `
 
 export const Button = styled(Link)`

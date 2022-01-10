@@ -1,7 +1,7 @@
-import React from 'react'
-import { InfoContainer, InfoWrapper, InfoRow, Column1, TextWrapper, TopLine, Heading, Subtitle, Column2, BtnWrap, Button,  } from './InfoElements'
+import React from 'react';
+import { InfoContainer, InfoWrapper, InfoRow, Column1, TextWrapper, TopLine, Heading, Subtitle, Column2, ImgWrap, Img} from './InfoElements'
 
-const InfoSection = ({lightBg, id, videoThmbn, lightText, primary, description1,description2, topLine, buttonLabel, includeBtn, headLine1, headLine2}) => {
+const InfoSection = ({lightBg, id, videoThmbn, lightText, primary, description1,description2, topLine, headLine1, headLine2}) => {
     
     return (
         <>
@@ -14,21 +14,7 @@ const InfoSection = ({lightBg, id, videoThmbn, lightText, primary, description1,
                                 <Heading lightText={lightText}>{headLine1}</Heading>
                                 <Subtitle>{description1}</Subtitle>
                                 <Subtitle>{description2}</Subtitle>
-                     
-                                {includeBtn && <BtnWrap>
-                                    <Button
-                                     primary={primary ? 1 : 0}
-                                     smooth={true}
-                                     duration={500}
-                                     spy={true}
-                                     exact="true"
-                                     offset={-80}
-                                    >{buttonLabel}
-                                    </Button>
-                                </BtnWrap>}
                             </TextWrapper>
-                        </Column1>
-                        <Column2>
                             <TextWrapper>
                                 <Heading lightText={lightText}>{headLine2}</Heading>
                                 <Subtitle>Copy the media URL and paste it into the search bar</Subtitle>
@@ -36,6 +22,11 @@ const InfoSection = ({lightBg, id, videoThmbn, lightText, primary, description1,
                                 <Subtitle>Choose your desired format and quality</Subtitle>
                                 <Subtitle>Download the file</Subtitle>
                             </TextWrapper>
+                        </Column1>
+                        <Column2>
+                            <ImgWrap>
+                                <Img src={require("../../images/about.svg").default} />
+                            </ImgWrap>
                         </Column2>
                     </InfoRow>
                 </InfoWrapper>

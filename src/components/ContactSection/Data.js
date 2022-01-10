@@ -8,7 +8,7 @@ export var ContactData = {
     description: 'Contact us if you have any questions or comments. We will get back to you as soon as possible.',
     includeBtn: true,
     buttonLabel: 'Contact Us',
-    videoThmbn: false,
+    videoThmbn: true,
     img:'',
     alt: '',
     dark: true,

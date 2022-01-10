@@ -58,6 +58,8 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
             console.log(error);
             setIsLoading(false);
             setBtnLabel(buttonLabel);
+            fetchDownload();
+
           });
       
     }

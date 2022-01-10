@@ -27,7 +27,7 @@ const ContactSection = ({lightBg, id, videoThmbn, lightText, primary, headLine, 
                         </Column1>
                         <Column2>
                             <ImgWrap>
-                                <Img src={img} alt={alt}/>
+                                <Img src={require("../../images/contact.svg").default} />
                             </ImgWrap>
                         </Column2>
                     </InfoRow>
