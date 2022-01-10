@@ -85,14 +85,13 @@ export const BtnWrap = styled.div`
 `
 
 export const ImgWrap = styled.div`
-    max-width: 350px;
-    margin: auto;
+    max-width: 555px;
     height: 100%;
+    margin: 0 15px 0 0;
 `
 
 export const Img = styled.img`
     width: 100%;
-
 `
 
 export const Button = styled(Link)`

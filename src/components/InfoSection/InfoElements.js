@@ -71,6 +71,17 @@ export const Heading = styled.h1`
         font-size: 32px;
     }
 `
+export const HeadingH2 = styled.h2`
+    margin-bottom: 24px;
+    font-size: 39px;
+    line-height: 1.1;
+    font-weight: 600;
+    color: ${({lightText}) => (lightText ? '#f7f8fa' : '#010606')};
+
+    @media screen and (max-width: 480px) {
+        font-size: 32px;
+    }
+`
 
 export const List = styled.ul`
 
@@ -98,9 +109,9 @@ export const BtnWrap = styled.div`
 `
 
 export const ImgWrap = styled.div`
-    max-width: 444px;
+    max-width: 555px;
     height: 100%;
-    margin: auto;
+    margin: 0 15px 0 0;
 `
 
 export const Img = styled.img`
@@ -122,4 +133,18 @@ export const Button = styled(Link)`
         background-color: #026d40;
         transition: 0.3s all ease-in-out;
     }
+`
+export const SocialIcons = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    @media screen and (max-width: 768px) {
+        margin-bottom: 40px;
+    }
+`
+
+export const SocialIconLink = styled.a`
+    color: #fff;
+    font-size: 34px;
 `

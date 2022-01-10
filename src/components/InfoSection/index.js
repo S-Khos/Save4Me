@@ -1,7 +1,8 @@
 import React from 'react';
-import { InfoContainer, InfoWrapper, InfoRow, Column1, TextWrapper, TopLine, Heading, Subtitle, Column2, ImgWrap, Img} from './InfoElements'
+import { InfoContainer, InfoWrapper, InfoRow, Column1, TextWrapper, TopLine, Heading, Subtitle, Column2, ImgWrap, Img, HeadingH2, SocialIconLink, SocialIcons} from './InfoElements'
+import {FaReddit, FaYoutube, FaFacebook, FaInstagram, FaTwitter} from 'react-icons/fa'
 
-const InfoSection = ({lightBg, id, videoThmbn, lightText, primary, description1,description2, topLine, headLine1, headLine2}) => {
+const InfoSection = ({lightBg, id, videoThmbn, lightText, description1,description2, topLine, headLine1, headLine2}) => {
     
     return (
         <>
@@ -22,6 +23,26 @@ const InfoSection = ({lightBg, id, videoThmbn, lightText, primary, description1,
                                 <Subtitle>Choose your desired format and quality</Subtitle>
                                 <Subtitle>Download the file</Subtitle>
                             </TextWrapper>
+                            <HeadingH2 lightText={lightText}>
+                                Supported Platforms
+                            </HeadingH2>
+                            <SocialIcons>
+                                <SocialIconLink href="/"  aria-label="Facebook">
+                                    <FaFacebook/>
+                                </SocialIconLink>
+                                <SocialIconLink href="/"  aria-label="Instagram">
+                                    <FaInstagram/>
+                                </SocialIconLink>
+                                <SocialIconLink href="/" aria-label="Twitter">
+                                    <FaTwitter/>
+                                </SocialIconLink>
+                                <SocialIconLink href="/" aria-label="Youtube">
+                                    <FaYoutube/>
+                                </SocialIconLink>
+                                <SocialIconLink href="/" aria-label="Reddit">
+                                    <FaReddit/>
+                                </SocialIconLink>
+                            </SocialIcons>
                         </Column1>
                         <Column2>
                             <ImgWrap>
