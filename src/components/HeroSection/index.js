@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { HeroContainer, HeroBg, VideoBg, HeroContent, HeroH1, LinkInput, HeroBtnWrapper, Search, HeroP, Scroll, ScrollWrap, DownArrow } from './HeroElements'
-import Video from '../../videos/video2.mp4'
+import Video from '../../videos/city.mp4'
 import {Button} from '../ButtonElement'
 import $ from "jquery";
 import './Main.css';

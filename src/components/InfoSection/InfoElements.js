@@ -42,6 +42,9 @@ export const Column1 = styled.div`
 export const Column2 = styled.div`
     padding: 0px 15px;
     grid-area: col2;
+    @media screen and (max-width: 768px) {
+        visibility: hidden;
+    }
 `
 
 export const TextWrapper = styled.div`
@@ -110,7 +113,7 @@ export const BtnWrap = styled.div`
 
 export const ImgWrap = styled.div`
     visibility: show;
-    max-width: 555px;
+    max-width: 100%;
     height: 100%;
     margin: 0 15px 0 0;
     padding-right: 0;
