@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import { HeroContainer, HeroBg, VideoBg, HeroContent, HeroH1, LinkInput, HeroBtnWrapper, Search, HeroP, Scroll, ScrollWrap, DownArrow } from './HeroElements'
+import { HeroContainer, HeroBg, VideoBg, HeroContent, HeroH1, LinkInput, HeroBtnWrapper, Search, HeroP, Scroll, ScrollWrap, DownArrow, FormContainer, Form } from './HeroElements'
 import Video from '../../videos/city.mp4'
 import {Button} from '../ButtonElement'
 import $ from "jquery";
@@ -87,16 +87,16 @@ const HeroSection = ({setMediaID, setMediaResolutions, render, setFetched, setMe
             <HeroContent>
               <HeroH1>Media Downloading Made Easy</HeroH1>
               <HeroP>Paste media URL from a supported platform to begin</HeroP>
-              <form className="input-form" onSubmit={e => e.preventDefault()}>
-                <div id="input-container">
+              <Form onSubmit={e => e.preventDefault()}>
+                <FormContainer>
                   <LinkInput value={videoUrl} valid={valid} onChange={e => setVideoUrl(e.target.value)} id="link-input" type="text"/>
                   <HeroBtnWrapper>
                     <Button onClick={() => submit()}>
                       <Search/>
                     </Button>
                   </HeroBtnWrapper>
-                </div>
-              </form>
+                </FormContainer>
+              </Form>
               {render && <ScrollWrap>
                 <Scroll smooth={true} to={'download'}>
                   <DownArrow/>

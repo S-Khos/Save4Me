@@ -54,12 +54,12 @@ export const HeroH1 = styled.h1`
     font-weight: bold;
 
     @media screen and (max-width: 768px) {
-        font-size: 60px;
+        font-size: 2.5rem;
         transition: 0.3s all ease-in-out;
     }
 
     @media screen and (max-width: 480px) {
-        font-size: 30px;
+        font-size: 2.2rem;
         transition: 0.3s all ease-in-out;
     }
 
@@ -91,12 +91,12 @@ export const HeroP = styled.p`
     max-width: 600px;
     margin-bottom: 35px;
     @media screen and (max-width: 768px) {
-        font-size: 24px;
+        font-size: 1.2rem;
         transition: 0.3s all ease-in-out;
     }
 
     @media screen and (max-width: 480px) {
-        font-size: 14px;
+        font-size: 1rem;
         transition: 0.3s all ease-in-out;
     }
 
@@ -123,7 +123,8 @@ export const LinkInput = styled.input`
     }
 
     @media screen and (max-width: 480px) {
-        width: 13.5rem;
+        ${'' /* width: 13.5rem; */}
+        width: 17.5rem;
         font-size: 140%;
         transition: 0.3s all ease-in-out;
     }
@@ -131,10 +132,22 @@ export const LinkInput = styled.input`
     ${'' /* border: ${({valid}) => valid ? '2.8px solid rgb(0, 255, 0)' : '2.8px solid rgb(255, 0, 0)'} !important; */}
 `
 
+export const FormContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+`
+
+export const Form = styled.form`
+
+`
 export const HeroBtnWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0;
+    margin: 0;
 `
 
 export const Search = styled(FaSearch)`

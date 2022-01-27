@@ -3,10 +3,7 @@
     color: rgb(172, 170, 170);
     /* font-size: 100%; */
 }
-#input-container{
-    display: flex;
-    flex-direction: row;
-}
+
 #input-submit{
     background-color: #00a7f5;
     text-align: center;
