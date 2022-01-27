@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import {FaSearch, FaArrowDown} from 'react-icons/fa';
 import {Link} from 'react-scroll';
 
@@ -189,13 +189,28 @@ export const BtnWrap = styled.div`
     justify-content: flex-start;
 `
 
+const transform = keyframes`
+  from {
+    ${'' /* transform: (0deg); */}
+    top: 15rem;
+  }
+
+  to {
+    ${'' /* transform: rotate(360deg); */}
+    bottom: -4rem;
+  }
+`;
+
 export const ScrollWrap = styled.div`
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 45px;
+    animation: ${transform} 1.2s linear infinite;
+    padding: 2rem;
 
 `
+
 
 export const Scroll = styled(Link)`
     word-wrap: break-word;

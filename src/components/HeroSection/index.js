@@ -1,11 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import { HeroContainer, HeroBg, VideoBg, HeroContent, HeroH1, LinkInput, HeroBtnWrapper, Search, HeroP, Scroll, ScrollWrap, DownArrow, FormContainer, Form } from './HeroElements'
+import { HeroContainer, HeroBg, VideoBg, HeroContent, HeroH1, LinkInput, HeroBtnWrapper, Search, HeroP, FormContainer, Form } from './HeroElements'
 import Video from '../../videos/city.mp4'
 import {Button} from '../ButtonElement'
 import $ from "jquery";
 import './Main.css';
 import axios from 'axios';
+import { scroller } from "react-scroll";
 
 const HeroSection = ({setMediaID, setMediaResolutions, render, setFetched, setMediaTitle, setMediaThumbnail}) => {
     
@@ -63,6 +64,15 @@ const HeroSection = ({setMediaID, setMediaResolutions, render, setFetched, setMe
       }
     },[videoUrl]);
 
+    const scrollToSection = () => {
+      scroller.scrollTo("download", {
+        duration: 700,
+        offset: -80,
+        delay: 0,
+        smooth: true,
+      });
+    };
+
     const submit = async () => {
       if (valid){
         //http://localhost:5000/api/video?id=${videoID}
@@ -75,6 +85,7 @@ const HeroSection = ({setMediaID, setMediaResolutions, render, setFetched, setMe
             setMediaResolutions(res.data.resolutions);
             setMediaID(videoID);
             setFetched(true);
+            scrollToSection();
           }
         })
       }
@@ -97,11 +108,6 @@ const HeroSection = ({setMediaID, setMediaResolutions, render, setFetched, setMe
                   </HeroBtnWrapper>
                 </FormContainer>
               </Form>
-              {render && <ScrollWrap>
-                <Scroll smooth={true} to={'download'}>
-                  <DownArrow/>
-                </Scroll>
-              </ScrollWrap>}
             </HeroContent>
         </HeroContainer>
     )
