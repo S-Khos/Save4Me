@@ -155,3 +155,12 @@ export const SocialIconLink = styled.a`
     color: #fff;
     font-size: 34px;
 `
+
+export const LItem = styled.li`
+    font-size:18px;
+    line-height: 24px;
+    margin-bottom: 10px;
+    list-style-position: inside;
+
+
+`
