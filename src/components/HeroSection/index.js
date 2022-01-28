@@ -7,6 +7,7 @@ import $ from "jquery";
 import './Main.css';
 import axios from 'axios';
 import { scroller } from "react-scroll";
+import { useLoading, Circles } from '@agney/react-loading';
 
 const HeroSection = ({setMediaID, setMediaResolutions, render, setFetched, setMediaTitle, setMediaThumbnail}) => {
     
@@ -14,6 +15,12 @@ const HeroSection = ({setMediaID, setMediaResolutions, render, setFetched, setMe
     const [videoID, setVideoID] = useState("");
     const [valid, setValid] = useState(null);
     const acceptedUrl = ['www.instagram.com', 'www.youtube.com','www.reddit.com', 'youtu.be'];
+
+    const [isLoading, setIsLoading] = useState(false);
+    const { containerProps, indicatorEl } = useLoading({
+        loading: isLoading,
+        indicator: <Circles width="20.3" color="white" />,
+    });
   
     useEffect(() => {
       var inputArea = document.getElementById('link-input');
@@ -75,6 +82,7 @@ const HeroSection = ({setMediaID, setMediaResolutions, render, setFetched, setMe
 
     const submit = async () => {
       if (valid){
+        setIsLoading(true);
         //http://localhost:5000/api/video?id=${videoID}
         //https://blissful-shore-337401.nn.r.appspot.com/api/video?id=${videoID}
         await axios.get(`https://blissful-shore-337401.nn.r.appspot.com/api/video?id=${videoID}`)
@@ -85,6 +93,7 @@ const HeroSection = ({setMediaID, setMediaResolutions, render, setFetched, setMe
             setMediaResolutions(res.data.resolutions);
             setMediaID(videoID);
             setFetched(true);
+            setIsLoading(false);
             scrollToSection();
           }
         })
@@ -102,9 +111,10 @@ const HeroSection = ({setMediaID, setMediaResolutions, render, setFetched, setMe
                 <FormContainer>
                   <LinkInput value={videoUrl} valid={valid} onChange={e => setVideoUrl(e.target.value)} id="link-input" type="text"/>
                   <HeroBtnWrapper>
-                    <Button onClick={() => submit()}>
+                    <Button {...containerProps} onClick={() => {submit()}}>{!isLoading && <Search/>}{indicatorEl}</Button>
+                    {/* <Button onClick={() => submit()}>
                       <Search/>
-                    </Button>
+                    </Button> */}
                   </HeroBtnWrapper>
                 </FormContainer>
               </Form>

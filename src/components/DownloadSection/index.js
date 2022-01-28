@@ -32,6 +32,7 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
                     />
                 )
             }
+            return 1;
         });
     }
 
@@ -46,7 +47,7 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
             url = `https://blissful-shore-337401.nn.r.appspot.com/download?id=${mediaID}&format=${format}&resolution=${quality}`;
         }
 
-        let filename = title.replace(/[^a-z0-9]/gi, '-');
+        let filename = title.replace(/[^A-Za-z0-9]\s\t/gi, '');
         setIsLoading(true);
         setBtnLabel('');
         new JsFileDownloader({ 
