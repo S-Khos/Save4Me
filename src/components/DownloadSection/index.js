@@ -8,7 +8,7 @@ import { useLoading, ThreeDots } from '@agney/react-loading';
 
 const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, title, lightText, primary, headLine, img, darkText, buttonLabel, alt, includeBtn}) => {
     const [format, setFormat] = useState('video');
-    const [quality, setQuality] = useState('144');
+    const [quality, setQuality] = useState(`${mediaResolutions[mediaResolutions.length - 1]}`);
     const [bitrate, setBitrate] = useState('192k');
     const [btnLabel, setBtnLabel] = useState(buttonLabel);
     const [isLoading, setIsLoading] = useState(false);
@@ -16,12 +16,12 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
         loading: isLoading,
         indicator: <ThreeDots width="40" />,
     });
-    const acceptedQuality = ['144', '240', '360', '480', '720', '1080', '1440', '2160'];
+
+    //const acceptedQuality = ['136', '144', '224', '240', '338', '360', '450', '480', '676', '720', '1012', '1080', '1350', '1440', '2026', '2160'];
     
 
     const renderResolutions = resolutions => {
         return resolutions.map((resolution, index) => {
-            if (acceptedQuality.includes(resolution.toString())) {
                 return (
                     <FormControlLabel
                         key={index}
@@ -31,8 +31,7 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
                         checked={quality === resolution.toString()}
                     />
                 )
-            }
-            return 1;
+      
         });
     }
 
@@ -106,11 +105,11 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
                                         row 
                                         value={bitrate}
                                         color="primary">
-                                            <FormControlLabel value="64k" label="64k" checked={bitrate === '64k'} control={<Radio color="secondary" onChange={(e) => {setBitrate('64k')}} />} />
-                                            <FormControlLabel value="128k" label="128k" checked={bitrate === '128k'} control={<Radio color="secondary" onChange={(e) => {setBitrate('128k')}} />} />
-                                            <FormControlLabel value="192k" label="192k" checked={bitrate === '192k'} control={<Radio color="secondary" onChange={(e) => {setBitrate('192k')}} />} />
-                                            <FormControlLabel value="256k" label="256k" checked={bitrate === '256k'} control={<Radio color="secondary" onChange={(e) => {setBitrate('256k')}} />} />
                                             <FormControlLabel value="320k" label="320k" checked={bitrate === '320k'} control={<Radio color="secondary" onChange={(e) => {setBitrate('320k')}} />} />
+                                            <FormControlLabel value="256k" label="256k" checked={bitrate === '256k'} control={<Radio color="secondary" onChange={(e) => {setBitrate('256k')}} />} />
+                                            <FormControlLabel value="192k" label="192k" checked={bitrate === '192k'} control={<Radio color="secondary" onChange={(e) => {setBitrate('192k')}} />} />
+                                            <FormControlLabel value="128k" label="128k" checked={bitrate === '128k'} control={<Radio color="secondary" onChange={(e) => {setBitrate('128k')}} />} />
+                                            <FormControlLabel value="64k" label="64k" checked={bitrate === '64k'} control={<Radio color="secondary" onChange={(e) => {setBitrate('64k')}} />} />
                                         </RadioGroup>
                                     </BtnWrap>
                                     
@@ -122,7 +121,7 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
                                      smooth={true}
                                      duration={500}
                                      spy={true}
-                                     exact={true}
+                                     exact={`${true}`}
                                      offset={-80}
                                      onClick={() => {fetchDownload()}}
                                     >{btnLabel}{indicatorEl}</Button>

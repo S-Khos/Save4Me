@@ -111,7 +111,7 @@ const HeroSection = ({setMediaID, setMediaResolutions, render, setFetched, setMe
                 <FormContainer>
                   <LinkInput value={videoUrl} valid={valid} onChange={e => setVideoUrl(e.target.value)} id="link-input" type="text"/>
                   <HeroBtnWrapper>
-                    <Button {...containerProps} onClick={() => {submit()}}>{!isLoading && <Search/>}{indicatorEl}</Button>
+                    <Button {...containerProps} exact={`${true}`} onClick={() => {submit()}}>{!isLoading && <Search/>}{indicatorEl}</Button>
                     {/* <Button onClick={() => submit()}>
                       <Search/>
                     </Button> */}

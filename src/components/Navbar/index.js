@@ -31,7 +31,7 @@ const Navbar = ({toggle}) => {
                             smooth={true} 
                             duration={700}
                             spy={true}
-                            exact={'true'}
+                            exact={`${true}`}
                             offset={-80}
                             to="search">Search</NavLinks>
                         </NavItem>
@@ -40,7 +40,7 @@ const Navbar = ({toggle}) => {
                             smooth={true} 
                             duration={700}
                             spy={true}
-                            exact={'true'}
+                            exact={`${true}`}
                             offset={-80}
                             activeClass='active'
                             to="about">About</NavLinks>
@@ -50,7 +50,7 @@ const Navbar = ({toggle}) => {
                             smooth={true} 
                             duration={700}
                             spy={true}
-                            exact={'true'}
+                            exact={`${true}`}
                             offset={-80} 
                             to="contact">Contact</NavLinks>
                         </NavItem>
