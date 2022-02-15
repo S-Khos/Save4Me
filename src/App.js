@@ -1,21 +1,21 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 import './App.css';
 import {
-  BrowserRouter as Router,
   Routes,
-  Route
+  Route,
+  HashRouter,
 } from "react-router-dom";
 import Home from './pages/index.js';
 import Radar from './pages/radar.js';
 
 function App() {
   return (
-    <Router>
+    <HashRouter>
       <Routes>
-        <Route exact path="/Save4Me" element={<Home />} />
+        <Route exact path="/" element={<Home />} />
         <Route exact path="/radar" element={<Radar />}/>
       </Routes>
-    </Router>
+    </HashRouter>
   );
 }
 

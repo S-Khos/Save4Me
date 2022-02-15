@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import DeckGL, { IconLayer, TextLayer } from "deck.gl";
-import {Container, MapContainer, Button, MarkerIcon} from './RadarElements';
+import {Container} from './RadarElements';
 import { Map } from "react-map-gl";
 import * as d3 from "d3";
 
@@ -10,7 +10,7 @@ import destinationPoint from "./destinationPoint";
 const initialViewState = {
     longitude: 0,
     latitude: 0,
-    zoom: 2,
+    zoom: 6,
     pitch: 0,
     bearing: 0
 };
@@ -21,7 +21,7 @@ class Radar extends Component {
     };
     currentFrame = null;
     timer = null;
-    fetchEverySeconds = 5;
+    fetchEverySeconds = 15;
     framesPerFetch = this.fetchEverySeconds * 30; // 60fps, 10 second intervals
 
     componentDidMount() {
