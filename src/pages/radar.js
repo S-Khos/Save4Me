@@ -128,7 +128,7 @@ class Radar extends Component {
 
                 >
                     <Map                     
-                        mapboxAccessToken={'pk.eyJ1IjoiemVya3NpbiIsImEiOiJja3prajYyOHkxeXliMnBuMnh6eHhydzg4In0.UhHL4N2AANwPviWSdTLrkA'}
+                        mapboxAccessToken={'pk.eyJ1IjoiemVya3NpbiIsImEiOiJja3prajdlazc0cjE3MnZvMHloeWh1enc3In0.JXYw5g0PAD2UNbeWq6KuPA'}
                         mapStyle="mapbox://styles/zerksin/ckzkj8xhy002614nx04jcmehh"
                     />
                 </DeckGL>
