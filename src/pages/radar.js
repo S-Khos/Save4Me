@@ -3,6 +3,7 @@ import DeckGL, { IconLayer, TextLayer } from "deck.gl";
 import {Container} from './RadarElements';
 import { Map } from "react-map-gl";
 import * as d3 from "d3";
+import './radar.css';
 
 import Airplane from "./target1.png";
 import destinationPoint from "./destinationPoint";
@@ -10,7 +11,7 @@ import destinationPoint from "./destinationPoint";
 const initialViewState = {
     longitude: 0,
     latitude: 0,
-    zoom: 6,
+    zoom: 3,
     pitch: 0,
     bearing: 0
 };
@@ -21,7 +22,7 @@ class Radar extends Component {
     };
     currentFrame = null;
     timer = null;
-    fetchEverySeconds = 15;
+    fetchEverySeconds = 5;
     framesPerFetch = this.fetchEverySeconds * 30; // 60fps, 10 second intervals
 
     componentDidMount() {
@@ -112,11 +113,13 @@ class Radar extends Component {
                 id: "text",
                 data: this.state.airplanes,
                 getPosition: d => [d.longitude, d.latitude],
-                getText: d => d.callsign+"\n"+d.origin_country+"\n"+d.altitude+" FT\n"+d.velocity+" MPH",
+                getText: d => d.callsign.trim()+"\n"+d.origin_country+"\n"+d.altitude+" FT\n"+d.velocity+" MPH",
                 getSize: d => 10,
                 getColor: d => [255, 255, 255],
+                getTextAnchor: d => "start",
+                getAlignmentBaseline: d => "top"
                 // getAngle: d => 45 + (d.true_track * 180) / Math.PI
-            })
+            }),
         ];
 
         return (
@@ -128,7 +131,7 @@ class Radar extends Component {
 
                 >
                     <Map                     
-                        mapboxAccessToken={'pk.eyJ1IjoiemVya3NpbiIsImEiOiJja3prajdlazc0cjE3MnZvMHloeWh1enc3In0.JXYw5g0PAD2UNbeWq6KuPA'}
+                        mapboxAccessToken={'pk.eyJ1IjoiemVya3NpbiIsImEiOiJja3pucGNkM2M1cXl4Mndtenk3N3Z4M3E3In0.RoG18Su2mz2bWVi6AX_PMg'}
                         mapStyle="mapbox://styles/zerksin/ckzkj8xhy002614nx04jcmehh"
                     />
                 </DeckGL>
