@@ -7,6 +7,7 @@ export const Container = styled.div`
     height: 100%;
     align-items: center;
     justify-content: center;
+    background-color: black;
 `
 
 export const MapContainer = styled.div`
@@ -16,10 +17,11 @@ export const MapContainer = styled.div`
     borderRadius: 800px;
     align-items: center;
     justify-content: center; 
+    background-color: black;
 `
 export const MarkerIcon = styled(FaCircle)`
     color: white;
-    font-size: .5rem;
+    font-size: 5rem;
 `
 
 export const Button = styled(Link)`
