@@ -41,9 +41,11 @@ const DownloadSection = ({mediaID, mediaResolutions, lightBg, id, videoThmbn, ti
         if (format === 'audio'){
             ext = 'mp3';
             url = `https://blissful-shore-337401.nn.r.appspot.com/download?id=${mediaID}&format=${format}&bitrate=${bitrate}`;
+            // url = `http://localhost:5000/download?id=${mediaID}&format=${format}&bitrate=${bitrate}`;
         } else {
             ext = 'mp4';
             url = `https://blissful-shore-337401.nn.r.appspot.com/download?id=${mediaID}&format=${format}&resolution=${quality}`;
+            // url = `http://localhost:5000/download/video?id=${mediaID}`;
         }
 
         let filename = title.replace(/[^A-Za-z0-9]\s\t/gi, '');
